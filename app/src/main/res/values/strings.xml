@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">MyMakingLayout</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="array_of_cities">
+        <item>Zihuatanejo, Gro</item>
+        <item>Novokuznetsk, RU</item>
+        <item>Moscow, RU</item>
+        <item>St. Petersburg, RU</item>
+    </string-array>
 </resources>
