@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">MyMakingLayout</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_explorer">Explorer</string>
+    <string name="title_bag">Bag</string>
+    <string name="title_heart">Heart</string>
+    <string name="title_human">Human</string>
+    <string name="subtitle_see_more">see more</string>
+    <string name="title_hot_sales">Hot Sales</string>
+    <string name="subtitle_view_all">view all</string>
+    <string name="title_select_category">Select Category</string>
+    <string name="title_best_seller">Best Seller</string>
+    <string name="category_phones">Phones</string>
+    <string name="new_hot_sales">New</string>
+    <string name="iphone_12">Iphone 12</string>
     <string-array name="array_of_cities">
         <item>Zihuatanejo, Gro</item>
         <item>Novokuznetsk, RU</item>
