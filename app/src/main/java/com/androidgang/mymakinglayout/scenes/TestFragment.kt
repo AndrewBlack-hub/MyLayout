@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.adapters.BestSellerAdapter
 import com.androidgang.mymakinglayout.adapters.MainAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentTestBinding
 import com.androidgang.mymakinglayout.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.category_cell.*
 
 class TestFragment : Fragment() {
 
@@ -40,7 +42,6 @@ class TestFragment : Fragment() {
         binding.rvBestSellerList.layoutManager = GridLayoutManager(context, 2)
 
         updateUI()
-
         return binding.root
     }
 
@@ -53,6 +54,7 @@ class TestFragment : Fragment() {
         }
         binding.rvCategory.adapter = mainAdapter
         binding.rvBestSellerList.adapter = bestSellerAdapter
+
     }
 
     override fun onDestroy() {

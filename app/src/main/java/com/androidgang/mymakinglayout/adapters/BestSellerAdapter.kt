@@ -1,5 +1,6 @@
 package com.androidgang.mymakinglayout.adapters
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,9 +37,19 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
 
         fun bind(item: BestSellerCell) {
             ivImageProduct.setImageResource(item.img)
-            tvPrice.text = item.price
-            tvOldPrice.text = item.oldPrice
-            tvDescription.text = item.description
+            tvPrice.setText(item.price)
+            tvOldPrice.apply {
+                setText(item.oldPrice)
+                paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            }
+            tvDescription.setText(item.description)
+            if (item.isChecked) {
+                itemView.iv_like_product.visibility = View.GONE
+                itemView.iv_like_product_checked.visibility = View.VISIBLE
+            } else {
+                itemView.iv_like_product.visibility = View.VISIBLE
+                itemView.iv_like_product_checked.visibility = View.GONE
+            }
         }
     }
 }

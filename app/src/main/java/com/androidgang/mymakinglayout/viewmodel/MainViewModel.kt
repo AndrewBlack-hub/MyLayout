@@ -7,67 +7,77 @@ import com.androidgang.mymakinglayout.models.CategoryCells
 
 class MainViewModel: ViewModel() {
     val categoriesList = mutableListOf<CategoryCells>()
-    var isSelectedCategory: Boolean = false
 
     val bestSellerList = mutableListOf<BestSellerCell>()
+
+//    fun isSelectedCategory() {
+//        if (isSelectedCategory) {
+//
+//        }
+//    }
 
     init {
         var category = CategoryCells()
         category.category = "Phones"
         category.img = R.drawable.ic_category_phones_grey
+        category.isPressed = true
         categoriesList += category
 
         category = CategoryCells()
         category.category = "Computer"
         category.img = R.drawable.ic_category_computer_grey
+        category.isPressed = false
         categoriesList += category
 
         category = CategoryCells()
         category.category = "Health"
         category.img = R.drawable.ic_category_health_grey
+        category.isPressed = false
         categoriesList += category
 
         category = CategoryCells()
         category.category = "Books"
         category.img = R.drawable.ic_category_books_grey
+        category.isPressed = false
         categoriesList += category
 
         category = CategoryCells()
         category.category = "Some else"
         category.img = R.drawable.ic_category_phones_grey
+        category.isPressed = false
         categoriesList += category
 
 
         var bestSellerCell = BestSellerCell()
         bestSellerCell.img = R.drawable.samsung_galaxy_s20_ultra
-        bestSellerCell.price = "$1,047"
-        bestSellerCell.oldPrice = "̶\$̶1̶,̶5̶0̶0̶"
-        bestSellerCell.description = "Samsung Galaxy S20 Ultra"
+        bestSellerCell.price = R.string.best_seller_price_item_1
+        bestSellerCell.oldPrice = R.string.best_seller_old_price_item_1
+        bestSellerCell.description = R.string.best_seller_description_item_1
         bestSellerCell.isChecked = false
         bestSellerList += bestSellerCell
 
         bestSellerCell = BestSellerCell()
         bestSellerCell.img = R.drawable.xiaomi_mi_10_pro
-        bestSellerCell.price = "$300"
-        bestSellerCell.oldPrice = " ̶\$̶4̶0̶0̶"
-        bestSellerCell.description = "Xiaomi Mi 10 Pro"
-        bestSellerCell.isChecked = false
+        bestSellerCell.price = R.string.best_seller_price_item_2
+        bestSellerCell.oldPrice = R.string.best_seller_old_price_item_2
+        bestSellerCell.description = R.string.best_seller_description_item_2
+        bestSellerCell.isChecked = true
         bestSellerList += bestSellerCell
 
         bestSellerCell = BestSellerCell()
         bestSellerCell.img = R.drawable.samsung_note_20_ultra
-        bestSellerCell.price = "$1,047"
-        bestSellerCell.oldPrice = "̶\$̶1̶,̶5̶0̶0̶"
-        bestSellerCell.description = "Samsung Note 20 Ultra"
+        bestSellerCell.price = R.string.best_seller_price_item_3
+        bestSellerCell.oldPrice = R.string.best_seller_old_price_item_3
+        bestSellerCell.description = R.string.best_seller_description_item_3
         bestSellerCell.isChecked = false
         bestSellerList += bestSellerCell
 
         bestSellerCell = BestSellerCell()
         bestSellerCell.img = R.drawable.motorola_one_edge
-        bestSellerCell.price = "$300"
-        bestSellerCell.oldPrice = " ̶\$̶4̶0̶0̶"
-        bestSellerCell.description = "Motorola One Edge"
-        bestSellerCell.isChecked = false
+        bestSellerCell.price = R.string.best_seller_price_item_4
+        bestSellerCell.oldPrice = R.string.best_seller_old_price_item_4
+        bestSellerCell.description = R.string.best_seller_description_item_4
+        bestSellerCell.isChecked = true
         bestSellerList += bestSellerCell
 
     }
