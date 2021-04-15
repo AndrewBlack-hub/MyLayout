@@ -11,7 +11,7 @@ import com.androidgang.mymakinglayout.models.CategoryCells
 import com.androidgang.mymakinglayout.R
 import kotlinx.android.synthetic.main.category_cell.view.*
 
-class MainAdapter(private val context: Context?): RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     var categoryList: List<CategoryCells> = listOf()
 
@@ -34,7 +34,7 @@ class MainAdapter(private val context: Context?): RecyclerView.Adapter<MainAdapt
         private val tvCategoryTitle: TextView = view.tv_category_title
 
         fun bind(item: CategoryCells) {
-            tvCategoryTitle.text = item.category
+            tvCategoryTitle.setText(item.category)
             imgCategory.setImageResource(item.img)
             if (item.isPressed) {
                 itemView.iv_category_ellipse.visibility = View.INVISIBLE

@@ -11,6 +11,9 @@
     <string name="title_select_category">Select Category</string>
     <string name="title_best_seller">Best Seller</string>
     <string name="category_phones">Phones</string>
+    <string name="category_computer">Computer</string>
+    <string name="category_health">Health</string>
+    <string name="category_books">Books</string>
     <string name="best_seller_description">Súper. Mega. Rápido.</string>
     <string name="new_hot_sales">New</string>
     <string name="iphone_12">Iphone 12</string>
@@ -28,6 +31,8 @@
     <string name="best_seller_old_price_item_2">$400</string>
     <string name="best_seller_old_price_item_3">$1,500</string>
     <string name="best_seller_old_price_item_4">$400</string>
+    <string name="ic_geolocation">icon geolocation</string>
+    <string name="ic_filter">icon filter</string>
 
     <string-array name="array_of_cities">
         <item>Zihuatanejo, Gro</item>

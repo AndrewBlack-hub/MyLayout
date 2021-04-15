@@ -10,39 +10,33 @@ class MainViewModel: ViewModel() {
 
     val bestSellerList = mutableListOf<BestSellerCell>()
 
-//    fun isSelectedCategory() {
-//        if (isSelectedCategory) {
-//
-//        }
-//    }
-
     init {
         var category = CategoryCells()
-        category.category = "Phones"
+        category.category = R.string.category_phones
         category.img = R.drawable.ic_category_phones_grey
         category.isPressed = true
         categoriesList += category
 
         category = CategoryCells()
-        category.category = "Computer"
+        category.category = R.string.category_computer
         category.img = R.drawable.ic_category_computer_grey
         category.isPressed = false
         categoriesList += category
 
         category = CategoryCells()
-        category.category = "Health"
+        category.category = R.string.category_health
         category.img = R.drawable.ic_category_health_grey
         category.isPressed = false
         categoriesList += category
 
         category = CategoryCells()
-        category.category = "Books"
+        category.category = R.string.category_books
         category.img = R.drawable.ic_category_books_grey
         category.isPressed = false
         categoriesList += category
 
         category = CategoryCells()
-        category.category = "Some else"
+        category.category = R.string.category_phones
         category.img = R.drawable.ic_category_phones_grey
         category.isPressed = false
         categoriesList += category

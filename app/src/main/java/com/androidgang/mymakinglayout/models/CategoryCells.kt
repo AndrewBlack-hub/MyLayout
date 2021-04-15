@@ -1,3 +1,3 @@
 package com.androidgang.mymakinglayout.models
 
-data class CategoryCells(var category: String = "", var img: Int = 0, var isPressed: Boolean = false)
+data class CategoryCells(var category: Int = 0, var img: Int = 0, var isPressed: Boolean = false)

@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.adapters.BestSellerAdapter
 import com.androidgang.mymakinglayout.adapters.MainAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentTestBinding
 import com.androidgang.mymakinglayout.viewmodel.MainViewModel
-import kotlinx.android.synthetic.main.category_cell.*
 
 class TestFragment : Fragment() {
 
@@ -46,7 +44,7 @@ class TestFragment : Fragment() {
     }
 
     private fun updateUI() {
-        mainAdapter = MainAdapter(context).apply {
+        mainAdapter = MainAdapter().apply {
             categoryList = mainViewModel.categoriesList
         }
         bestSellerAdapter = BestSellerAdapter().apply {
