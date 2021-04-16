@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.androidgang.mymakinglayout.adapters.BestSellerAdapter
 import com.androidgang.mymakinglayout.adapters.MainAdapter
-import com.androidgang.mymakinglayout.databinding.FragmentTestBinding
+import com.androidgang.mymakinglayout.databinding.FragmentHomeStoreBinding
 import com.androidgang.mymakinglayout.viewmodel.MainViewModel
 
-class TestFragment : Fragment() {
+class HomeStoreFragment : Fragment() {
 
-    private var _binding: FragmentTestBinding? = null
+    private var _binding: FragmentHomeStoreBinding? = null
     private val binding get() = _binding!!
 
     private var mainAdapter: MainAdapter? = null
@@ -25,16 +25,11 @@ class TestFragment : Fragment() {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTestBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeStoreBinding.inflate(inflater, container, false)
 
         binding.rvCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.rvBestSellerList.layoutManager = GridLayoutManager(context, 2)

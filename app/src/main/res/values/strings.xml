@@ -34,6 +34,7 @@
     <string name="ic_geolocation">icon geolocation</string>
     <string name="ic_filter">icon filter</string>
 
+    <string name="title_splash">Ecommerce \nConcept</string>
     <string-array name="array_of_cities">
         <item>Zihuatanejo, Gro</item>
         <item>Novokuznetsk, RU</item>
