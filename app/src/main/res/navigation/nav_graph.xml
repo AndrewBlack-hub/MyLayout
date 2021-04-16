@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/testFragment">
+    app:startDestination="@id/homeStoreFragment">
 
     <fragment
-        android:id="@+id/testFragment"
-        android:name="com.androidgang.mymakinglayout.scenes.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
-    <fragment android:id="@+id/placeholder" />
+        android:id="@+id/homeStoreFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.HomeStoreFragment"
+        android:label="fragment_home_store"
+        tools:layout="@layout/fragment_home_store" />
 </navigation>
