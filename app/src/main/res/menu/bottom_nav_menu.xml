@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_explorer"
+        android:icon="@drawable/ic_explorer"
+        android:title="@string/title_explorer" />
+
+    <item
+        android:id="@+id/navigation_bag"
+        android:icon="@drawable/ic_bag"
+        android:title="@string/title_bag" />
+
+    <item
+        android:id="@+id/navigation_heart"
+        android:icon="@drawable/ic_heart"
+        android:title="@string/title_heart" />
+
+    <item
+        android:id="@+id/navigation_human"
+        android:icon="@drawable/ic_human"
+        android:title="@string/title_human" />
+
+</menu>

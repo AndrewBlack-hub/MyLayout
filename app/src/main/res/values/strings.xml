@@ -1,6 +1,39 @@
 <resources>
     <string name="app_name">MyMakingLayout</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_explorer">Explorer</string>
+    <string name="title_bag">Bag</string>
+    <string name="title_heart">Heart</string>
+    <string name="title_human">Human</string>
+    <string name="subtitle_see_more">see more</string>
+    <string name="title_hot_sales">Hot Sales</string>
+    <string name="subtitle_view_all">view all</string>
+    <string name="title_select_category">Select Category</string>
+    <string name="title_best_seller">Best Seller</string>
+    <string name="category_phones">Phones</string>
+    <string name="category_computer">Computer</string>
+    <string name="category_health">Health</string>
+    <string name="category_books">Books</string>
+    <string name="best_seller_description">Súper. Mega. Rápido.</string>
+    <string name="new_hot_sales">New</string>
+    <string name="iphone_12">Iphone 12</string>
+    <string name="buy_now">Buy now!</string>
+
+    <string name="best_seller_description_item_1">Samsung Galaxy S20 Ultra</string>
+    <string name="best_seller_description_item_2">Xiaomi Mi 10 Pro</string>
+    <string name="best_seller_description_item_3">Samsung Note 20 Ultra</string>
+    <string name="best_seller_description_item_4">Motorola One Edge</string>
+    <string name="best_seller_price_item_1">$1,047</string>
+    <string name="best_seller_price_item_2">$300</string>
+    <string name="best_seller_price_item_3">$1,047</string>
+    <string name="best_seller_price_item_4">$300</string>
+    <string name="best_seller_old_price_item_1">$1,500</string>
+    <string name="best_seller_old_price_item_2">$400</string>
+    <string name="best_seller_old_price_item_3">$1,500</string>
+    <string name="best_seller_old_price_item_4">$400</string>
+    <string name="ic_geolocation">icon geolocation</string>
+    <string name="ic_filter">icon filter</string>
+
     <string-array name="array_of_cities">
         <item>Zihuatanejo, Gro</item>
         <item>Novokuznetsk, RU</item>
