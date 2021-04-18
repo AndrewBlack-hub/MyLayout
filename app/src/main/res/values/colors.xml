@@ -7,7 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="dark_blue_color">#010035</color>
-    <color name="main_orange_color">#FF6E4E</color>
+    <color name="dark_blue">#010035</color>
+    <color name="orange">#FF6E4E</color>
     <color name="main_background_color">#F8F8F8</color>
+    <color name="filter_border_spinner">#DCDCDC</color>
 </resources>

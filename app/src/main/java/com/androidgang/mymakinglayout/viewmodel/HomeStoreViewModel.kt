@@ -3,39 +3,39 @@ package com.androidgang.mymakinglayout.viewmodel
 import androidx.lifecycle.ViewModel
 import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.models.BestSellerCell
-import com.androidgang.mymakinglayout.models.CategoryCells
+import com.androidgang.mymakinglayout.models.CategoryCell
 
-class MainViewModel: ViewModel() {
-    val categoriesList = mutableListOf<CategoryCells>()
+class HomeStoreViewModel: ViewModel() {
+    val categoriesList = mutableListOf<CategoryCell>()
 
     val bestSellerList = mutableListOf<BestSellerCell>()
 
     init {
-        var category = CategoryCells()
+        var category = CategoryCell()
         category.category = R.string.category_phones
         category.img = R.drawable.ic_category_phones_grey
         category.isPressed = true
         categoriesList += category
 
-        category = CategoryCells()
+        category = CategoryCell()
         category.category = R.string.category_computer
         category.img = R.drawable.ic_category_computer_grey
         category.isPressed = false
         categoriesList += category
 
-        category = CategoryCells()
+        category = CategoryCell()
         category.category = R.string.category_health
         category.img = R.drawable.ic_category_health_grey
         category.isPressed = false
         categoriesList += category
 
-        category = CategoryCells()
+        category = CategoryCell()
         category.category = R.string.category_books
         category.img = R.drawable.ic_category_books_grey
         category.isPressed = false
         categoriesList += category
 
-        category = CategoryCells()
+        category = CategoryCell()
         category.category = R.string.category_phones
         category.img = R.drawable.ic_category_phones_grey
         category.isPressed = false
