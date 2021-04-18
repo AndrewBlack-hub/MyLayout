@@ -21,11 +21,11 @@
         <!-- Text Size -->
         <item name="android:textSize">12sp</item>
         <!-- Query Text Color -->
-        <item name="android:textColorPrimary">@color/dark_blue_color</item>
+        <item name="android:textColorPrimary">@color/dark_blue</item>
         <!-- Hint Color -->
         <item name="android:textColorHint">@android:color/darker_gray</item>
         <!-- Icon Color -->
-        <item name="android:tint">@color/main_orange_color</item>
+        <item name="android:tint">@color/orange</item>
         <item name="fontFamily">@font/mark_pro</item>
 <!--        <item name="android:fontFamily">@font/mark_pro</item>-->
     </style>
@@ -33,7 +33,8 @@
     <style name="AppSpinner" parent="Widget.AppCompat.Spinner" >
         <item name="android:textSize">15sp</item>
         <item name="fontFamily">@font/mark_pro</item>
-        <item name="color">@color/dark_blue_color</item>
+        <item name="color">@color/dark_blue</item>
         <item name="android:textStyle">bold</item>
     </style>
+
 </resources>

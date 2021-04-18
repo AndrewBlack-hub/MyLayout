@@ -10,50 +10,50 @@
     <style name="font_800_dark_blue">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">800</item>
-        <item name="android:textColor">@color/dark_blue_color</item>
+        <item name="android:textColor">@color/dark_blue</item>
     </style>
 
     <style name="font_700_dark_blue">
         <item name="android:textStyle">bold</item>
         <item name="android:textFontWeight">700</item>
-        <item name="android:textColor">@color/dark_blue_color</item>
+        <item name="android:textColor">@color/dark_blue</item>
     </style>
 
     <style name="font_500_dark_blue">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">500</item>
-        <item name="android:textColor">@color/dark_blue_color</item>
+        <item name="android:textColor">@color/dark_blue</item>
     </style>
 
     <style name="font_400_dark_blue">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">400</item>
-        <item name="android:textColor">@color/dark_blue_color</item>
+        <item name="android:textColor">@color/dark_blue</item>
     </style>
 
 
     <style name="font_800_orange">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">800</item>
-        <item name="android:textColor">@color/main_orange_color</item>
+        <item name="android:textColor">@color/orange</item>
     </style>
 
     <style name="font_700_orange">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">700</item>
-        <item name="android:textColor">@color/main_orange_color</item>
+        <item name="android:textColor">@color/orange</item>
     </style>
 
     <style name="font_500_orange">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">500</item>
-        <item name="android:textColor">@color/main_orange_color</item>
+        <item name="android:textColor">@color/orange</item>
     </style>
 
     <style name="font_400_orange">
         <item name="android:textStyle">normal</item>
         <item name="android:textFontWeight">400</item>
-        <item name="android:textColor">@color/main_orange_color</item>
+        <item name="android:textColor">@color/orange</item>
     </style>
 
     <style name="font_400_gray">
