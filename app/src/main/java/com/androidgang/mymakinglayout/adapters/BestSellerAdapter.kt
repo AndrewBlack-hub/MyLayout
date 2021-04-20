@@ -11,9 +11,14 @@ import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.models.BestSellerCell
 import kotlinx.android.synthetic.main.best_seller_cell.view.*
 
-class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
+class BestSellerAdapter(
+    private val bestSellerList: List<BestSellerCell>,
+    private val onBestSellerCellClickListener: OnBestSellerCellClickListener
+) : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
 
-    var bestSellerList: List<BestSellerCell> = listOf()
+    interface OnBestSellerCellClickListener {
+        fun onCellClick(position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerViewHolder {
         val view =
@@ -24,6 +29,9 @@ class BestSellerAdapter : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewH
     override fun onBindViewHolder(holder: BestSellerViewHolder, position: Int) {
         val itemSeller = bestSellerList[position]
         holder.bind(itemSeller)
+        holder.itemView.setOnClickListener {
+            onBestSellerCellClickListener.onCellClick(position)
+        }
     }
 
     override fun getItemCount(): Int = bestSellerList.size
