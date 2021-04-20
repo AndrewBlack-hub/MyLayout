@@ -33,30 +33,39 @@ class HomeStoreFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeStoreBinding.inflate(inflater, container, false)
 
-        binding.rvCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvBestSellerList.layoutManager = GridLayoutManager(context, 2)
-
-        updateUI()
+        initRVCategory()
+        initRVBestSeller()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.ivFilterIc.setOnClickListener {
-            findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
-        }
+        initCategoryAdapter()
+        initBestSellerAdapter()
     }
 
-    private fun updateUI() {
+    private fun initRVCategory() {
+        binding.rvCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun initRVBestSeller() {
+        binding.rvBestSellerList.layoutManager = GridLayoutManager(context, 2)
+    }
+
+    private fun initCategoryAdapter() {
         mainAdapter = MainAdapter().apply {
             categoryList = mainViewModel.categoriesList
         }
-        bestSellerAdapter = BestSellerAdapter().apply {
-            bestSellerList = mainViewModel.bestSellerList
-        }
         binding.rvCategory.adapter = mainAdapter
-        binding.rvBestSellerList.adapter = bestSellerAdapter
+    }
 
+    private fun initBestSellerAdapter() {
+        bestSellerAdapter = BestSellerAdapter(mainViewModel.bestSellerList, object : BestSellerAdapter.OnBestSellerCellClickListener {
+            override fun onCellClick(position: Int) {
+                findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
+            }
+        })
+        binding.rvBestSellerList.adapter = bestSellerAdapter
     }
 
     override fun onDestroy() {
