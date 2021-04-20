@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.adapters.BestSellerAdapter
 import com.androidgang.mymakinglayout.adapters.MainAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentHomeStoreBinding
@@ -36,6 +38,13 @@ class HomeStoreFragment : Fragment() {
 
         updateUI()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.ivFilterIc.setOnClickListener {
+            findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
+        }
     }
 
     private fun updateUI() {

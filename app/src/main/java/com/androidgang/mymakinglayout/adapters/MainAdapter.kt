@@ -1,6 +1,5 @@
 package com.androidgang.mymakinglayout.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,7 +46,7 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
                 itemView.iv_category_ellipse_selected.visibility = View.GONE
                 itemView.iv_category_ic_white.visibility = View.GONE
                 itemView.iv_category_ic_grey.visibility = View.VISIBLE
-                itemView.tv_category_title.setTextColor(itemView.resources.getColor(R.color.dark_blue_color))
+                itemView.tv_category_title.setTextColor(itemView.resources.getColor(R.color.dark_blue))
             }
         }
     }

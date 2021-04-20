@@ -41,4 +41,7 @@
         <item>Moscow, RU</item>
         <item>St. Petersburg, RU</item>
     </string-array>
+
+    <!--  Details Fragment  -->
+    <string name="title_product_detail">Product Detail</string>
 </resources>
