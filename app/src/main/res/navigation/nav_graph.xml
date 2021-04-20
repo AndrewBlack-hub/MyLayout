@@ -9,18 +9,5 @@
         android:id="@+id/homeStoreFragment"
         android:name="com.androidgang.mymakinglayout.scenes.HomeStoreFragment"
         android:label="fragment_home_store"
-        tools:layout="@layout/fragment_home_store" >
-        <action
-            android:id="@+id/action_homeStoreFragment_to_bottomSheetFragment"
-            app:destination="@id/bottomSheetFragment" />
-    </fragment>
-    <dialog
-        android:id="@+id/bottomSheetFragment"
-        android:name="com.androidgang.mymakinglayout.scenes.BottomSheetFragment"
-        android:label="BottomSheetFragment"
-        tools:layout="@layout/fragment_bottom_sheet">
-        <action
-            android:id="@+id/action_bottomSheetFragment_to_homeStoreFragment"
-            app:destination="@id/homeStoreFragment" />
-    </dialog>
+        tools:layout="@layout/fragment_home_store" />
 </navigation>

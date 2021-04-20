@@ -45,6 +45,13 @@ class HomeStoreFragment : Fragment() {
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.ivFilterIc.setOnClickListener {
+            findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
+        }
+    }
+
     private fun updateUI() {
         homeStoreAdapter = HomeStoreAdapter().apply {
             categoryList = homeStoreViewModel.categoriesList
