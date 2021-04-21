@@ -62,10 +62,14 @@ class HomeStoreFragment : Fragment() {
     private fun initBestSellerAdapter() {
         bestSellerAdapter = BestSellerAdapter(mainViewModel.bestSellerList, object : BestSellerAdapter.OnBestSellerCellClickListener {
             override fun onCellClick(position: Int) {
-                findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
+                switchFragment()
             }
         })
         binding.rvBestSellerList.adapter = bestSellerAdapter
+    }
+
+    private fun switchFragment() {
+        findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
     }
 
     override fun onDestroy() {
