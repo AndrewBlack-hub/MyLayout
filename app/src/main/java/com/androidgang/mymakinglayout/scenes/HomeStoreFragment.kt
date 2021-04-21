@@ -32,32 +32,56 @@ class HomeStoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeStoreBinding.inflate(inflater, container, false)
+
+        initRVCategory()
+        initRVBestSeller()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initCategoryAdapter()
+        initBestSellerAdapter()
+        openFilterFragment()
+    }
+
+    private fun initRVCategory() {
         binding.rvCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun initRVBestSeller() {
         binding.rvBestSellerList.layoutManager = GridLayoutManager(context, 2)
-        updateUI()
+    }
+
+    private fun initCategoryAdapter() {
+        homeStoreAdapter = HomeStoreAdapter().apply {
+            categoryList = homeStoreViewModel.categoriesList
+        }
+        binding.rvCategory.adapter = homeStoreAdapter
+    }
+
+    private fun initBestSellerAdapter() {
+        bestSellerAdapter = BestSellerAdapter(homeStoreViewModel.bestSellerList, object : BestSellerAdapter.OnBestSellerCellClickListener {
+            override fun onCellClick(position: Int) {
+                switchFragment()
+            }
+        })
+        binding.rvBestSellerList.adapter = bestSellerAdapter
+    }
+
+    private fun openFilterFragment() {
         binding.ivFilterIc.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
         }
     }
 
-    private fun updateUI() {
-        homeStoreAdapter = HomeStoreAdapter().apply {
-            categoryList = homeStoreViewModel.categoriesList
-        }
-        bestSellerAdapter = BestSellerAdapter().apply {
-            bestSellerList = homeStoreViewModel.bestSellerList
-        }
-        binding.rvCategory.adapter = homeStoreAdapter
-        binding.rvBestSellerList.adapter = bestSellerAdapter
+    private fun switchFragment() {
+        findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
+
 }

@@ -10,5 +10,10 @@
     <color name="dark_blue">#010035</color>
     <color name="orange">#FF6E4E</color>
     <color name="main_background_color">#F8F8F8</color>
+    <color name="details_not_selected_category_color">#80000000</color>
+    <color name="details_info_color">#B7B7B7</color>
+    <color name="brown">#772D03</color>
+    <color name="dark_grey">#8D8D8D</color>
+    <color name="stars_color">#FFB800</color>
     <color name="filter_border_spinner">#DCDCDC</color>
 </resources>

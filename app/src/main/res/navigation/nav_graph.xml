@@ -5,20 +5,33 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeStoreFragment">
 
+
     <fragment
         android:id="@+id/homeStoreFragment"
         android:name="com.androidgang.mymakinglayout.scenes.HomeStoreFragment"
         android:label="fragment_home_store"
         tools:layout="@layout/fragment_home_store" >
         <action
+            android:id="@+id/action_homeStoreFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
             android:id="@+id/action_homeStoreFragment_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_homeStoreFragment"
+            app:destination="@id/homeStoreFragment" />
     </fragment>
     <dialog
         android:id="@+id/bottomSheetFragment"
         android:name="com.androidgang.mymakinglayout.scenes.BottomSheetFragment"
-        android:label="BottomSheetFragment"
-        tools:layout="@layout/fragment_bottom_sheet">
+        android:label="fragment_bottom_sheet"
+        tools:layout="@layout/fragment_bottom_sheet" >
         <action
             android:id="@+id/action_bottomSheetFragment_to_homeStoreFragment"
             app:destination="@id/homeStoreFragment" />
