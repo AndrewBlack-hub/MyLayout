@@ -1,6 +1,5 @@
 package com.androidgang.mymakinglayout.scenes
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,10 +25,18 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.ivCloseFilter.setOnClickListener {
+        onClickCloseFilter()
+        onClickDoneFilter()
+    }
+
+    private fun onClickDoneFilter() {
+        binding.tvDoneFilter.setOnClickListener {
             findNavController().navigate(R.id.action_bottomSheetFragment_to_homeStoreFragment)
         }
-        binding.tvDoneFilter.setOnClickListener {
+    }
+
+    private fun onClickCloseFilter() {
+        binding.ivCloseFilter.setOnClickListener {
             findNavController().navigate(R.id.action_bottomSheetFragment_to_homeStoreFragment)
         }
     }
