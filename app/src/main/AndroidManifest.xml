@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Определяет пространство имен андроид-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    <!--     Имя пакета, уникальный id приложения     -->
     package="com.androidgang.mymakinglayout">
-
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.MyMakingLayout">
-        <activity android:name=".scenes.MainActivity"
-            android:label="Main"/>
-        <activity android:name=".scenes.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <!--один из основных элементом манифеста, содержит описание компонентов приложения-->
+<application
+    <!-- Позволяет выполнять резервное копирование и восстановление      -->
+    android:allowBackup="true"
+    <!--Определяет иконку приложения-->
+    android:icon="@mipmap/ic_launcher"
+    <!--текстовая метка, отображаетмая пользователю-->
+    android:label="@string/app_name"
+    <!--атрибут позволяющий устанавливать приложению иконку круглой формы-->
+    android:roundIcon="@mipmap/ic_launcher_round"
+    <!--готово ли приложение поддерживать макеты справа налево-->
+    android:supportsRtl="true"
+    <!--тема устанавливаемая приложению-->
+    android:theme="@style/Theme.MyMakingLayout">
+    <!--активити в приложении-->
+<activity android:name=".scenes.MainActivity">
+<!--    определяет типы намерений, на которые могут ответить деятельность, сервис или приемник намерений    -->
+<intent-filter>
+    <!--       определяем тукущую активити как главную         -->
+    <action android:name="android.intent.action.MAIN" />
+    <!--текущая активити является лаунчером (Приложение запускается с этого активити)-->
+    <category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
     </application>
 
-</manifest>
+    </manifest>
