@@ -42,6 +42,7 @@ class HomeStoreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initCategoryAdapter()
         initBestSellerAdapter()
+        openFilterFragment()
     }
 
     private fun initRVCategory() {
@@ -66,6 +67,12 @@ class HomeStoreFragment : Fragment() {
             }
         })
         binding.rvBestSellerList.adapter = bestSellerAdapter
+    }
+
+    private fun openFilterFragment() {
+        binding.ivFilterIc.setOnClickListener {
+            findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
+        }
     }
 
     private fun switchFragment() {
