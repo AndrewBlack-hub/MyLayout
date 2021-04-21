@@ -21,12 +21,12 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:contentDescription="@string/ic_geolocation"
                 android:id="@+id/iv_geolocation_ic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="132dp"
                 android:layout_marginTop="21dp"
+                android:contentDescription="@string/ic_geolocation"
                 android:src="@drawable/ic_geolocation_icon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,44 +36,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
-                android:background="@drawable/spinner_background"
+                android:background="@drawable/main_spinner_background"
                 android:entries="@array/array_of_cities"
                 app:layout_constraintBottom_toBottomOf="@id/iv_geolocation_ic"
                 app:layout_constraintStart_toEndOf="@id/iv_geolocation_ic"
-                app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic"
-                />
+                app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic" />
 
             <ImageView
-                android:contentDescription="@string/ic_filter"
                 android:id="@+id/iv_filter_ic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="35dp"
-                android:src="@drawable/ic_fileter_icon"
+                android:contentDescription="@string/ic_filter"
+                android:src="@drawable/ic_filter"
                 app:layout_constraintBottom_toBottomOf="@id/iv_geolocation_ic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_header_category"
+                style="@style/font_700_dark_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="18dp"
                 android:text="@string/title_select_category"
                 android:textSize="25sp"
-                style="@style/font_700_dark_blue"
                 app:fontFamily="@font/mark_pro"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_geolocation_ic" />
 
             <TextView
                 android:id="@+id/tv_label_view_all"
+                style="@style/font_400_orange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="119dp"
                 android:text="@string/subtitle_view_all"
-                style="@style/font_400_orange"
                 app:fontFamily="@font/mark_pro"
                 app:layout_constraintBottom_toBottomOf="@id/tv_header_category"
                 app:layout_constraintStart_toEndOf="@id/tv_header_category"
@@ -86,11 +85,11 @@
                 android:layout_marginTop="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/category_cell"
                 app:layout_constraintBottom_toTopOf="@id/sv_search_field"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_header_category" />
+                app:layout_constraintTop_toBottomOf="@id/tv_header_category"
+                tools:listitem="@layout/category_cell" />
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/sv_search_field"
@@ -100,12 +99,12 @@
                 android:layout_marginTop="35dp"
                 android:background="@drawable/border_radius_edit_text"
                 android:inputType="text"
-                app:searchIcon="@drawable/ic_search"
                 app:iconifiedByDefault="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rv_category"
                 app:queryBackground="@android:color/transparent"
                 app:queryHint="Search"
+                app:searchIcon="@drawable/ic_search"
                 app:theme="@style/AppSearchView" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -124,12 +123,12 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_header_hot_sales"
+                style="@style/font_700_dark_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/title_hot_sales"
-                style="@style/font_700_dark_blue"
                 android:textSize="25sp"
                 app:fontFamily="@font/mark_pro"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,11 +136,11 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_label_see_more_hot_sales"
+                style="@style/font_400_orange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="189dp"
                 android:text="@string/subtitle_see_more"
-                style="@style/font_400_orange"
                 app:fontFamily="@font/mark_pro"
                 app:layout_constraintBottom_toBottomOf="@id/tv_header_hot_sales"
                 app:layout_constraintStart_toEndOf="@id/tv_header_hot_sales"
@@ -151,8 +150,8 @@
                 android:id="@+id/iv_hot_sale"
                 android:layout_width="0dp"
                 android:layout_height="182dp"
-                android:layout_marginTop="9dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="9dp"
                 android:layout_marginEnd="15dp"
                 android:background="@drawable/img_hot_sales"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -196,7 +195,7 @@
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/sf_pro_regular"
-                android:text="@string/best_seller_description"
+                android:text="@string/hot_sales_description"
                 android:textColor="@color/white"
                 android:textSize="11sp"
                 app:layout_constraintStart_toStartOf="@id/iv_hot_sale"
@@ -206,8 +205,8 @@
                 android:id="@+id/btn_hot_sales"
                 android:layout_width="98dp"
                 android:layout_height="23dp"
-                android:layout_marginTop="26dp"
                 android:layout_marginStart="26dp"
+                android:layout_marginTop="26dp"
                 android:background="@drawable/border_raduis_button"
                 android:fontFamily="@font/sf_pro_regular"
                 android:text="@string/buy_now"
@@ -220,12 +219,12 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_header_best_seller"
+                style="@style/font_700_dark_blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/title_best_seller"
-                style="@style/font_700_dark_blue"
                 android:textSize="25sp"
                 app:fontFamily="@font/mark_pro"
                 app:layout_constraintStart_toStartOf="parent"
@@ -233,11 +232,11 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_label_see_more_best_seller"
+                style="@style/font_400_orange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="178dp"
                 android:text="@string/subtitle_see_more"
-                style="@style/font_400_orange"
                 app:layout_constraintBottom_toBottomOf="@id/tv_header_best_seller"
                 app:layout_constraintStart_toEndOf="@id/tv_header_best_seller"
                 app:layout_constraintTop_toTopOf="@id/tv_header_best_seller" />
@@ -246,18 +245,20 @@
                 android:id="@+id/rv_best_seller_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17dp"
                 android:layout_marginStart="17dp"
+                android:layout_marginTop="17dp"
                 android:layout_marginEnd="17dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                tools:listitem="@layout/best_seller_cell"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_header_best_seller"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_header_best_seller"
+                tools:listitem="@layout/best_seller_cell" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

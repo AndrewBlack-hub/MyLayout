@@ -1,19 +1,18 @@
 package com.androidgang.mymakinglayout.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.androidgang.mymakinglayout.models.CategoryCells
+import com.androidgang.mymakinglayout.models.CategoryCell
 import com.androidgang.mymakinglayout.R
 import kotlinx.android.synthetic.main.category_cell.view.*
 
-class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+class HomeStoreAdapter: RecyclerView.Adapter<HomeStoreAdapter.MainViewHolder>() {
 
-    var categoryList: List<CategoryCells> = listOf()
+    var categoryList: List<CategoryCell> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -33,7 +32,7 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
         private val imgCategory: ImageView = view.iv_category_ic_grey
         private val tvCategoryTitle: TextView = view.tv_category_title
 
-        fun bind(item: CategoryCells) {
+        fun bind(item: CategoryCell) {
             tvCategoryTitle.setText(item.category)
             imgCategory.setImageResource(item.img)
             if (item.isPressed) {
@@ -41,13 +40,13 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
                 itemView.iv_category_ellipse_selected.visibility = View.VISIBLE
                 itemView.iv_category_ic_white.visibility = View.VISIBLE
                 itemView.iv_category_ic_grey.visibility = View.GONE
-                itemView.tv_category_title.setTextColor(itemView.resources.getColor(R.color.main_orange_color))
+                itemView.tv_category_title.setTextColor(itemView.resources.getColor(R.color.orange))
             } else {
                 itemView.iv_category_ellipse.visibility = View.VISIBLE
                 itemView.iv_category_ellipse_selected.visibility = View.GONE
                 itemView.iv_category_ic_white.visibility = View.GONE
                 itemView.iv_category_ic_grey.visibility = View.VISIBLE
-                itemView.tv_category_title.setTextColor(itemView.resources.getColor(R.color.dark_blue_color))
+                itemView.tv_category_title.setTextColor(itemView.resources.getColor(R.color.dark_blue))
             }
         }
     }

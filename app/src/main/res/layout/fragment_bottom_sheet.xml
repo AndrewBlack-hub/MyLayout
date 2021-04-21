@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_sheet_background"
+    android:paddingBottom="44dp"
+    tools:context=".scenes.BottomSheetFragment">
+
+
+    <ImageView
+        android:id="@+id/iv_close_filter"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bottom_sheet_close_btn"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_done_filter"
+        style="@style/font_500_white"
+        android:layout_width="86dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bottom_sheet_done_btn"
+        android:fontFamily="@font/mark_pro"
+        android:gravity="center"
+        android:text="@string/filter_done"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/font_500_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/mark_pro"
+        android:text="@string/filter_options"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_brand_title"
+        style="@style/font_500_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="39dp"
+        android:text="@string/filter_title_brand"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_close_filter" />
+
+    <Spinner
+        android:id="@+id/spinner_brand"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="31dp"
+        android:background="@drawable/filter_spinner"
+        android:entries="@array/filter_brand_array"
+        android:paddingStart="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_close_filter" />
+
+    <TextView
+        android:id="@+id/tv_price_title"
+        style="@style/font_500_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/filter_title_price"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_brand" />
+
+    <Spinner
+        android:id="@+id/spinner_price"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="31dp"
+        android:background="@drawable/filter_spinner"
+        android:entries="@array/filter_price_array"
+        android:paddingStart="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_brand" />
+
+    <TextView
+        android:id="@+id/tv_size_title"
+        style="@style/font_500_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/filter_title_size"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_price" />
+
+    <Spinner
+        android:id="@+id/spinner_size"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="31dp"
+        android:background="@drawable/filter_spinner"
+        android:entries="@array/filter_size_array"
+        android:paddingStart="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,41 @@
 <resources>
     <string name="app_name">MyMakingLayout</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Home Store - Bottom Nav Menu  -->
     <string name="title_explorer">Explorer</string>
     <string name="title_bag">Bag</string>
     <string name="title_heart">Heart</string>
     <string name="title_human">Human</string>
-    <string name="subtitle_see_more">see more</string>
-    <string name="title_hot_sales">Hot Sales</string>
-    <string name="subtitle_view_all">view all</string>
+
+    <!--    Home Store - Main Spinner    -->
+    <string-array name="array_of_cities">
+        <item>Zihuatanejo, Gro</item>
+        <item>Novokuznetsk, RU</item>
+        <item>Moscow, RU</item>
+        <item>St. Petersburg, RU</item>
+    </string-array>
+    <string name="ic_filter">icon filter</string>
+    <string name="ic_geolocation">icon geolocation</string>
+
+<!--    Home Store - Select Category Part   -->
     <string name="title_select_category">Select Category</string>
-    <string name="title_best_seller">Best Seller</string>
     <string name="category_phones">Phones</string>
     <string name="category_computer">Computer</string>
     <string name="category_health">Health</string>
     <string name="category_books">Books</string>
-    <string name="best_seller_description">Súper. Mega. Rápido.</string>
+    <string name="subtitle_view_all">view all</string>
+
+<!--    Home Store - Hot Sales  -->
+    <string name="title_hot_sales">Hot Sales</string>
+    <string name="hot_sales_description">Súper. Mega. Rápido.</string>
     <string name="new_hot_sales">New</string>
     <string name="iphone_12">Iphone 12</string>
     <string name="buy_now">Buy now!</string>
+    <string name="subtitle_see_more">see more</string>
 
+    <!--  Home Store - Best Seller part    -->
+    <string name="title_best_seller">Best Seller</string>
     <string name="best_seller_description_item_1">Samsung Galaxy S20 Ultra</string>
     <string name="best_seller_description_item_2">Xiaomi Mi 10 Pro</string>
     <string name="best_seller_description_item_3">Samsung Note 20 Ultra</string>
@@ -31,14 +48,23 @@
     <string name="best_seller_old_price_item_2">$400</string>
     <string name="best_seller_old_price_item_3">$1,500</string>
     <string name="best_seller_old_price_item_4">$400</string>
-    <string name="ic_geolocation">icon geolocation</string>
-    <string name="ic_filter">icon filter</string>
 
+    <!--  Fragment Splash  -->
     <string name="title_splash">Ecommerce \nConcept</string>
-    <string-array name="array_of_cities">
-        <item>Zihuatanejo, Gro</item>
-        <item>Novokuznetsk, RU</item>
-        <item>Moscow, RU</item>
-        <item>St. Petersburg, RU</item>
+
+    <!-- Home Store - Filter popup part  -->
+    <string name="filter_options">Filter options</string>
+    <string name="filter_done">Done</string>
+    <string name="filter_title_brand">Brand</string>
+    <string name="filter_title_price">Price</string>
+    <string name="filter_title_size">Size</string>
+    <string-array name="filter_brand_array">
+        <item>Samsung</item>
+    </string-array>
+    <string-array name="filter_price_array">
+        <item>$300 - $500</item>
+    </string-array>
+    <string-array name="filter_size_array">
+        <item>4.5 to 5.5 inches</item>
     </string-array>
 </resources>
