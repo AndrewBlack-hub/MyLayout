@@ -10,7 +10,7 @@
     <item android:state_selected="true">
         <shape android:shape="rectangle">
             <stroke android:width="3dp"
-                android:color="@color/main_orange_color"/>
+                android:color="@color/orange"/>
         </shape>
     </item>
 
