@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMakingLayout">
-        <activity android:name=".scenes.MainActivity">
+        <activity android:name=".scenes.MainActivity"
+            android:label="Main"/>
+        <activity android:name=".scenes.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
