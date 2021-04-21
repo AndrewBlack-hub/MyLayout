@@ -23,4 +23,18 @@
             android:id="@+id/action_bottomSheetFragment_to_homeStoreFragment"
             app:destination="@id/homeStoreFragment" />
     </dialog>
+        tools:layout="@layout/fragment_home_store" >
+        <action
+            android:id="@+id/action_homeStoreFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_homeStoreFragment"
+            app:destination="@id/homeStoreFragment" />
+    </fragment>
 </navigation>

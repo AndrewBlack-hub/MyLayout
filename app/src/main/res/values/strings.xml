@@ -67,4 +67,7 @@
     <string-array name="filter_size_array">
         <item>4.5 to 5.5 inches</item>
     </string-array>
+
+    <!--  Details Fragment  -->
+    <string name="title_product_detail">Product Detail</string>
 </resources>
