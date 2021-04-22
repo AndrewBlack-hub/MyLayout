@@ -43,6 +43,7 @@ class HomeStoreFragment : Fragment() {
         initCategoryAdapter()
         initBestSellerAdapter()
         openFilterFragment()
+        testSafeArgs() // TEST METHOD
     }
 
     private fun initRVCategory() {
@@ -72,6 +73,15 @@ class HomeStoreFragment : Fragment() {
     private fun openFilterFragment() {
         binding.ivFilterIc.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
+        }
+    }
+
+    private fun testSafeArgs() {
+        binding.btnHotSales.setOnClickListener {
+            val someText: String = binding.svSearchField.query.toString()
+            val hello = "Привет, $someText"
+            val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToBottomSheetFragment(hello)
+            findNavController().navigate(action)
         }
     }
 

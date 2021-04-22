@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.databinding.FragmentBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -13,6 +14,9 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
 
     private var _binding: FragmentBottomSheetBinding? = null
     private val binding get() = _binding!!
+
+    private val args: BottomSheetFragmentArgs by navArgs()
+    private val text by lazy { args.someText }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +31,12 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         onClickCloseFilter()
         onClickDoneFilter()
+        testCatchArgs()
+    }
+
+    private fun testCatchArgs() {
+
+        binding.tvTestCatchArgs.text = text
     }
 
     private fun onClickDoneFilter() {

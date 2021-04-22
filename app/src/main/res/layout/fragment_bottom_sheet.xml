@@ -38,6 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_test_catch_args"
         style="@style/font_500_dark_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
