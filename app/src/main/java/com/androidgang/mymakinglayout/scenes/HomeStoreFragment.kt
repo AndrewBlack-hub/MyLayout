@@ -32,14 +32,13 @@ class HomeStoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeStoreBinding.inflate(inflater, container, false)
-
-        initRVCategory()
-        initRVBestSeller()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initRVCategory()
+        initRVBestSeller()
         initCategoryAdapter()
         initBestSellerAdapter()
         openFilterFragment()
