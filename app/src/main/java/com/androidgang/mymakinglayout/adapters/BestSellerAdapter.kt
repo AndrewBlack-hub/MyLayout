@@ -1,5 +1,6 @@
 package com.androidgang.mymakinglayout.adapters
 
+import android.content.Context
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +9,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.androidgang.mymakinglayout.R
-import com.androidgang.mymakinglayout.models.BestSellerCell
+import com.androidgang.mymakinglayout.models.PhonesResponse
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.best_seller_cell.view.*
 
 class BestSellerAdapter(
-    private val bestSellerList: List<BestSellerCell>,
+    private val context: Context,
+    private val bestSellerList: List<PhonesResponse>,
     private val onBestSellerCellClickListener: OnBestSellerCellClickListener
 ) : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
 
@@ -41,17 +44,19 @@ class BestSellerAdapter(
         private val ivImageProduct: ImageView = view.img_product
         private val tvPrice: TextView = view.tv_price
         private val tvOldPrice: TextView = view.tv_old_price
-        private val tvDescription: TextView = view.tv_description
+        private val tvFullTitle: TextView = view.tv_description
 
-        fun bind(item: BestSellerCell) {
-            ivImageProduct.setImageResource(item.img)
-            tvPrice.setText(item.price)
+        fun bind(item: PhonesResponse) {
+            Glide.with(context)
+                .load(item.image)
+                .into(ivImageProduct)
+            tvPrice.text = item.price
             tvOldPrice.apply {
-                setText(item.oldPrice)
+                text = item.oldPrice
                 paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             }
-            tvDescription.setText(item.description)
-            if (item.isChecked) {
+            tvFullTitle.text = item.fullTitle
+            if (item.isFavorite) {
                 itemView.iv_like_product.visibility = View.GONE
                 itemView.iv_like_product_checked.visibility = View.VISIBLE
             } else {
