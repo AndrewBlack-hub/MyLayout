@@ -47,7 +47,9 @@ class HomeStoreFragment : Fragment() {
     }
 
     private fun initRVCategory() {
-        binding.rvCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvCategory.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.HORIZONTAL, false
+        )
     }
 
     private fun initRVBestSeller() {
@@ -62,7 +64,8 @@ class HomeStoreFragment : Fragment() {
     }
 
     private fun initBestSellerAdapter() {
-        bestSellerAdapter = BestSellerAdapter(homeStoreViewModel.bestSellerList, object : BestSellerAdapter.OnBestSellerCellClickListener {
+        bestSellerAdapter = BestSellerAdapter(homeStoreViewModel.bestSellerList,
+            object : BestSellerAdapter.OnBestSellerCellClickListener {
             override fun onCellClick(position: Int) {
                 switchFragment()
             }
@@ -93,5 +96,4 @@ class HomeStoreFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }
