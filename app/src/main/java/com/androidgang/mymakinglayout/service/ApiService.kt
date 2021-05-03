@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("/rest/phones")
-    fun getPhones(): Observable<PhonesResponse>
+    @GET("phones")
+    fun getPhones(): Observable<List<PhonesResponse>>
 }

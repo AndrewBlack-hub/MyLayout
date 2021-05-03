@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkService {
 
-    private const val BASE_URL = "https://ecommdb-d0e6.restdb.io"
+    private const val BASE_URL = "https://ecommdb-d0e6.restdb.io/rest/"
 
     private val logger = run {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -28,6 +28,7 @@ object NetworkService {
         .client(okHttpClient.apply {
             Interceptor { chain ->
                 val builder = chain.request().newBuilder()
+                builder.header("x-apikey", "ad8335d4f42951d735a37fb5032dd8c903e79")
                 return@Interceptor chain.proceed(builder.build())
             }
         }.build())

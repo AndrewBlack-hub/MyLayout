@@ -1,10 +1,12 @@
 package com.androidgang.mymakinglayout.scenes
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,6 +15,7 @@ import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.adapters.BestSellerAdapter
 import com.androidgang.mymakinglayout.adapters.HomeStoreAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentHomeStoreBinding
+import com.androidgang.mymakinglayout.models.PhonesResponse
 import com.androidgang.mymakinglayout.viewmodel.HomeStoreViewModel
 
 class HomeStoreFragment : Fragment() {
@@ -37,12 +40,20 @@ class HomeStoreFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initialization()
+    }
+
+    private fun initialization() {
         initRVCategory()
         initRVBestSeller()
+//        implClickListenerAdapter()
         initCategoryAdapter()
+        loadData()
+        liveDataObservers()
         initBestSellerAdapter()
         openFilterFragment()
-        testSafeArgs() // TEST METHOD
+        //testSafeArgs() // TEST METHOD
+
     }
 
     private fun initRVCategory() {
@@ -63,14 +74,39 @@ class HomeStoreFragment : Fragment() {
     }
 
     private fun initBestSellerAdapter() {
-        bestSellerAdapter = BestSellerAdapter(homeStoreViewModel.bestSellerList,
-            object : BestSellerAdapter.OnBestSellerCellClickListener {
-            override fun onCellClick(position: Int) {
-                switchFragment()
-            }
-        })
+        bestSellerAdapter = BestSellerAdapter(requireContext())
         binding.rvBestSellerList.adapter = bestSellerAdapter
     }
+
+    private fun liveDataObservers() {
+        homeStoreViewModel.getLiveDataOnError.observe(viewLifecycleOwner, Observer {
+            Log.e("TAG", "getLiveDataOnError: ${it.message}")
+        })
+
+        homeStoreViewModel.getLiveDataOnSuccess.observe(viewLifecycleOwner, Observer {
+            dataLoaded(it as List<PhonesResponse>)
+            Log.e("TAG", "data loaded success!")
+        })
+    }
+
+    private fun dataLoaded(list: List<PhonesResponse>) {
+        bestSellerAdapter?.setList(list)
+    }
+
+    private fun loadData() {
+        homeStoreViewModel.loadData() //Загружаем данные с сервера в liveData
+        Log.e("TAG", "данные с сервера")
+    }
+
+//    private fun implClickListenerAdapter() {
+//        bestSellerAdapter.let {
+//            object : BestSellerAdapter.OnBestSellerCellClickListener {
+//                override fun onCellClick(position: Int) {
+//                    switchFragment()
+//                }
+//            }
+//        }
+//    }
 
     private fun openFilterFragment() {
         binding.ivFilterIc.setOnClickListener {
@@ -78,14 +114,14 @@ class HomeStoreFragment : Fragment() {
         }
     }
 
-    private fun testSafeArgs() {
-        binding.btnHotSales.setOnClickListener {
-            val someText: String = binding.svSearchField.query.toString()
-            val hello = "Привет, $someText"
-            val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToBottomSheetFragment(hello)
-            findNavController().navigate(action)
-        }
-    }
+//    private fun testSafeArgs() {
+//        binding.btnHotSales.setOnClickListener {
+//            val someText: String = binding.svSearchField.query.toString()
+//            val hello = "Привет, $someText"
+//            val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToBottomSheetFragment(hello)
+//            findNavController().navigate(action)
+//        }
+//    }
 
     private fun switchFragment() {
         findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
@@ -94,5 +130,6 @@ class HomeStoreFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        homeStoreViewModel.disposeObservers()
     }
 }

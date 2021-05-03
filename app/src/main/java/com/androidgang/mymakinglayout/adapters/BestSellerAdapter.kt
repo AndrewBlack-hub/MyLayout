@@ -14,10 +14,12 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.best_seller_cell.view.*
 
 class BestSellerAdapter(
-    private val context: Context,
-    private val bestSellerList: List<PhonesResponse>,
-    private val onBestSellerCellClickListener: OnBestSellerCellClickListener
+    private val context: Context
 ) : RecyclerView.Adapter<BestSellerAdapter.BestSellerViewHolder>() {
+
+    private val bestSellerList: ArrayList<PhonesResponse> = arrayListOf()
+
+    var onBestSellerCellClickListener: OnBestSellerCellClickListener? = null
 
     interface OnBestSellerCellClickListener {
         fun onCellClick(position: Int)
@@ -33,7 +35,7 @@ class BestSellerAdapter(
         val itemSeller = bestSellerList[position]
         holder.bind(itemSeller)
         holder.itemView.setOnClickListener {
-            onBestSellerCellClickListener.onCellClick(position)
+            onBestSellerCellClickListener?.onCellClick(position)
         }
     }
 
@@ -64,5 +66,11 @@ class BestSellerAdapter(
                 itemView.iv_like_product_checked.visibility = View.GONE
             }
         }
+    }
+
+    fun setList(list: List<PhonesResponse>) {
+        bestSellerList.clear()
+        bestSellerList.addAll(list)
+        notifyDataSetChanged()
     }
 }
