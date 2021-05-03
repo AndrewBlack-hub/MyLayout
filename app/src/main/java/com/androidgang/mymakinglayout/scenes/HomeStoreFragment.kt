@@ -42,10 +42,13 @@ class HomeStoreFragment : Fragment() {
         initCategoryAdapter()
         initBestSellerAdapter()
         openFilterFragment()
+        testSafeArgs() // TEST METHOD
     }
 
     private fun initRVCategory() {
-        binding.rvCategory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvCategory.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.HORIZONTAL, false
+        )
     }
 
     private fun initRVBestSeller() {
@@ -60,7 +63,8 @@ class HomeStoreFragment : Fragment() {
     }
 
     private fun initBestSellerAdapter() {
-        bestSellerAdapter = BestSellerAdapter(homeStoreViewModel.bestSellerList, object : BestSellerAdapter.OnBestSellerCellClickListener {
+        bestSellerAdapter = BestSellerAdapter(homeStoreViewModel.bestSellerList,
+            object : BestSellerAdapter.OnBestSellerCellClickListener {
             override fun onCellClick(position: Int) {
                 switchFragment()
             }
@@ -74,6 +78,15 @@ class HomeStoreFragment : Fragment() {
         }
     }
 
+    private fun testSafeArgs() {
+        binding.btnHotSales.setOnClickListener {
+            val someText: String = binding.svSearchField.query.toString()
+            val hello = "Привет, $someText"
+            val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToBottomSheetFragment(hello)
+            findNavController().navigate(action)
+        }
+    }
+
     private fun switchFragment() {
         findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
     }
@@ -82,5 +95,4 @@ class HomeStoreFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

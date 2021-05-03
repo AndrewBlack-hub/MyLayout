@@ -35,5 +35,9 @@
         <action
             android:id="@+id/action_bottomSheetFragment_to_homeStoreFragment"
             app:destination="@id/homeStoreFragment" />
+        <argument
+            android:name="someText"
+            app:argType="string"
+            android:defaultValue="Hello, World!" />
     </dialog>
 </navigation>

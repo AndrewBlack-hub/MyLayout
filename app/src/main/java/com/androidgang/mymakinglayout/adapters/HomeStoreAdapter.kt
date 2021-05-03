@@ -10,24 +10,24 @@ import com.androidgang.mymakinglayout.models.CategoryCell
 import com.androidgang.mymakinglayout.R
 import kotlinx.android.synthetic.main.category_cell.view.*
 
-class HomeStoreAdapter: RecyclerView.Adapter<HomeStoreAdapter.MainViewHolder>() {
+class HomeStoreAdapter: RecyclerView.Adapter<HomeStoreAdapter.HomeStoreViewHolder>() {
 
     var categoryList: List<CategoryCell> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeStoreViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.category_cell, parent, false)
-        return MainViewHolder(view)
+        return HomeStoreViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeStoreViewHolder, position: Int) {
         val itemCategory = categoryList[position]
         holder.bind(itemCategory)
     }
 
     override fun getItemCount(): Int = categoryList.size
 
-    inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class HomeStoreViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val imgCategory: ImageView = view.iv_category_ic_grey
         private val tvCategoryTitle: TextView = view.tv_category_title
