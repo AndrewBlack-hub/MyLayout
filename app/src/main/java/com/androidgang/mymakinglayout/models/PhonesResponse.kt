@@ -8,33 +8,33 @@ data class PhonesResponse(
     @Expose
     var id: Int = 0,
 
-    @SerializedName("fullTitle")
-    @Expose
-    var fullTitle: String = "",
-
     @SerializedName("price")
     @Expose
     var price: String = "",
-
-    @SerializedName("oldPrice")
-    @Expose
-    var oldPrice: String = "",
 
     @SerializedName("image")
     @Expose
     var image: String = "",
 
+    @SerializedName("fullTitle")
+    @Expose
+    var fullTitle: String = "",
+
+    @SerializedName("oldPrice")
+    @Expose
+    var oldPrice: String = "",
+
     @SerializedName("isFavorite")
     @Expose
     var isFavorite: Boolean = false,
 
-    @SerializedName("rating")
-    @Expose
-    var rating: Int = 0,
-
     @SerializedName("processor")
     @Expose
     var processor: String = "",
+
+    @SerializedName("rating")
+    @Expose
+    var rating: Int = 0,
 
     @SerializedName("camera")
     @Expose

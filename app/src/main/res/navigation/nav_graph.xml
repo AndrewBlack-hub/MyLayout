@@ -26,6 +26,29 @@
         <action
             android:id="@+id/action_detailsFragment_to_homeStoreFragment"
             app:destination="@id/homeStoreFragment" />
+        <argument
+            android:name="fullTitle"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
+        <argument
+            android:name="rating"
+            app:argType="integer" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument android:name="processor"
+            app:argType="string" />
+        <argument
+            android:name="camera"
+            app:argType="string" />
+        <argument
+            android:name="ram"
+            app:argType="string" />
+        <argument
+            android:name="rom"
+            app:argType="string" />
     </fragment>
     <dialog
         android:id="@+id/bottomSheetFragment"

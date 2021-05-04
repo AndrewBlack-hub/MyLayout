@@ -184,6 +184,8 @@
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/mark_pro"
                 android:text="Exynos 990"
+                android:maxWidth="90dp"
+                android:gravity="center"
                 android:textColor="@color/details_info_color"
                 android:textSize="11sp"
                 app:layout_constraintEnd_toEndOf="@id/iv_cpu_details"

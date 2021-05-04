@@ -46,13 +46,12 @@ class HomeStoreFragment : Fragment() {
     private fun initialization() {
         initRVCategory()
         initRVBestSeller()
-//        implClickListenerAdapter()
         initCategoryAdapter()
         loadData()
         liveDataObservers()
         initBestSellerAdapter()
         openFilterFragment()
-        //testSafeArgs() // TEST METHOD
+        implClickListenerAdapter()
 
     }
 
@@ -98,33 +97,29 @@ class HomeStoreFragment : Fragment() {
         Log.e("TAG", "данные с сервера")
     }
 
-//    private fun implClickListenerAdapter() {
-//        bestSellerAdapter.let {
-//            object : BestSellerAdapter.OnBestSellerCellClickListener {
-//                override fun onCellClick(position: Int) {
-//                    switchFragment()
-//                }
-//            }
-//        }
-//    }
+    private fun implClickListenerAdapter() {
+        bestSellerAdapter?.onBestSellerCellClickListener = object : BestSellerAdapter
+        .OnBestSellerCellClickListener {
+            override fun onCellClick(item: PhonesResponse) {
+                val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToDetailsFragment(
+                    fullTitle = item.fullTitle,
+                    price = item.price,
+                    rating = item.rating,
+                    image = item.image,
+                    processor = item.processor,
+                    camera = item.camera,
+                    ram = item.ram,
+                    rom = item.rom
+                )
+                findNavController().navigate(action)
+            }
+        }
+    }
 
     private fun openFilterFragment() {
         binding.ivFilterIc.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
         }
-    }
-
-//    private fun testSafeArgs() {
-//        binding.btnHotSales.setOnClickListener {
-//            val someText: String = binding.svSearchField.query.toString()
-//            val hello = "Привет, $someText"
-//            val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToBottomSheetFragment(hello)
-//            findNavController().navigate(action)
-//        }
-//    }
-
-    private fun switchFragment() {
-        findNavController().navigate(R.id.action_homeStoreFragment_to_detailsFragment)
     }
 
     override fun onDestroy() {

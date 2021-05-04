@@ -15,9 +15,6 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
     private var _binding: FragmentBottomSheetBinding? = null
     private val binding get() = _binding!!
 
-    private val args: BottomSheetFragmentArgs by navArgs()
-    private val text by lazy { args.someText }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,13 +28,8 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         onClickCloseFilter()
         onClickDoneFilter()
-        testCatchArgs()
     }
 
-    private fun testCatchArgs() {
-
-        binding.tvTestCatchArgs.text = text
-    }
 
     private fun onClickDoneFilter() {
         binding.tvDoneFilter.setOnClickListener {

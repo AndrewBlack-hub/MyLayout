@@ -22,15 +22,17 @@ object NetworkService {
         .addInterceptor(logger)
 
     private val builder = Retrofit.Builder()
-        .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .baseUrl(BASE_URL)
         .client(okHttpClient.apply {
-            Interceptor { chain ->
-                val builder = chain.request().newBuilder()
-                builder.header("x-apikey", "ad8335d4f42951d735a37fb5032dd8c903e79")
-                return@Interceptor chain.proceed(builder.build())
-            }
+            addInterceptor(
+                Interceptor { chain ->
+                    val builder = chain.request().newBuilder()
+                    builder.header("x-apikey", "ad8335d4f42951d735a37fb5032dd8c903e79")
+                    return@Interceptor chain.proceed(builder.build())
+                }
+            )
         }.build())
 
     private val retrofit = builder.build()//create retrofit instance

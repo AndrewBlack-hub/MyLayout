@@ -8,16 +8,16 @@
     android:layout_marginBottom="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="186dp"
+        android:layout_height="227dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_product"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="168dp"
+            android:layout_height="180dp"
             android:layout_marginTop="5dp"
-            android:scaleType="fitStart"
-            android:src="@drawable/samsung_galaxy_s20_ultra"
+            android:scaleType="centerInside"
+            android:src="@drawable/phone_product"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

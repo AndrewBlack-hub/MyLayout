@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -18,6 +19,16 @@ import com.androidgang.mymakinglayout.viewmodel.DetailsViewModel
 
 
 class DetailsFragment : Fragment() {
+
+    private val args: DetailsFragmentArgs by navArgs()
+    private val fullTitle by lazy { args.fullTitle }
+    private val price by lazy { args.price }
+    private val image by lazy { args.image }
+    private val rating by lazy { args.rating }
+    private val processor by lazy { args.processor }
+    private val camera by lazy { args.camera }
+    private val ram by lazy { args.ram }
+    private val rom by lazy { args.rom }
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -49,6 +60,7 @@ class DetailsFragment : Fragment() {
         binding.vpDetailsList.adapter = viewPagerAdapter
         settingViewPager2()
         hideBottomNavigation(parentActivity)
+        updateUI()
     }
 
     private fun settingViewPager2() {
@@ -68,6 +80,16 @@ class DetailsFragment : Fragment() {
         viewPager?.setPageTransformer(compositePageTransformer)
         onClickBackBtn()
         onClickDoneBtn()
+    }
+
+    private fun updateUI() {
+        binding.tvLabelProductDetail.text = fullTitle
+        binding.ratingBar.rating = rating.toFloat()
+        binding.tvLabelCpu.text = processor
+        binding.tvLabelCamera.text = camera
+        binding.tvLabelMemory.text = rom
+        binding.tvLabelRam.text = ram
+        binding.tvPriceAddToCard.text = price
     }
 
     private fun onClickBackBtn() {

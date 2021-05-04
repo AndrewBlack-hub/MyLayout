@@ -22,7 +22,7 @@ class BestSellerAdapter(
     var onBestSellerCellClickListener: OnBestSellerCellClickListener? = null
 
     interface OnBestSellerCellClickListener {
-        fun onCellClick(position: Int)
+        fun onCellClick(item: PhonesResponse)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerViewHolder {
@@ -35,7 +35,7 @@ class BestSellerAdapter(
         val itemSeller = bestSellerList[position]
         holder.bind(itemSeller)
         holder.itemView.setOnClickListener {
-            onBestSellerCellClickListener?.onCellClick(position)
+            onBestSellerCellClickListener?.onCellClick(itemSeller)
         }
     }
 
