@@ -63,4 +63,9 @@
             app:argType="string"
             android:defaultValue="Hello, World!" />
     </dialog>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.ProductsFragment"
+        android:label="products_fragment"
+        tools:layout="@layout/products_fragment" />
 </navigation>
