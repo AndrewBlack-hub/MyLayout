@@ -52,7 +52,7 @@ class HomeStoreFragment : Fragment() {
         initBestSellerAdapter()
         openFilterFragment()
         implClickListenerAdapter()
-
+        toProductsFragment()//Тестовый переход на Фрагмент товаров
     }
 
     private fun initRVCategory() {
@@ -119,6 +119,13 @@ class HomeStoreFragment : Fragment() {
     private fun openFilterFragment() {
         binding.ivFilterIc.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
+        }
+    }
+
+    //МЕТОД для перехода на фрагмент товаров
+    private fun toProductsFragment() {
+        binding.ivFindingButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeStoreFragment_to_productsFragment)
         }
     }
 

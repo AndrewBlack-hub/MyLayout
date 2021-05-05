@@ -20,15 +20,18 @@ import com.androidgang.mymakinglayout.viewmodel.DetailsViewModel
 
 class DetailsFragment : Fragment() {
 
-    private val args: DetailsFragmentArgs by navArgs()
-    private val fullTitle by lazy { args.fullTitle }
-    private val price by lazy { args.price }
-    private val image by lazy { args.image }
-    private val rating by lazy { args.rating }
-    private val processor by lazy { args.processor }
-    private val camera by lazy { args.camera }
-    private val ram by lazy { args.ram }
-    private val rom by lazy { args.rom }
+    private val argsFromBestSeller: DetailsFragmentArgs by navArgs()
+    private val fullTitle by lazy { argsFromBestSeller.fullTitle }
+    private val price by lazy { argsFromBestSeller.price }
+    private val image by lazy { argsFromBestSeller.image }
+    private val rating by lazy { argsFromBestSeller.rating }
+    private val processor by lazy { argsFromBestSeller.processor }
+    private val camera by lazy { argsFromBestSeller.camera }
+    private val ram by lazy { argsFromBestSeller.ram }
+    private val rom by lazy { argsFromBestSeller.rom }
+
+    //Аргументы из фрагмента "Товары"
+    private val argsFromProducts: DetailsFragmentArgs by navArgs()
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
