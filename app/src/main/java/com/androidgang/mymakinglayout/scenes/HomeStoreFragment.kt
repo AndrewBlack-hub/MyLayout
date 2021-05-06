@@ -54,7 +54,6 @@ class HomeStoreFragment : Fragment() {
         initBestSellerAdapter()
         openFilterFragment()
         implClickListenerAdapter()
-
     }
 
     private fun initRVCategory() {
@@ -134,6 +133,5 @@ class HomeStoreFragment : Fragment() {
         _binding = null
         disposeObservers()
         homeStoreViewModel.disposeObservers()
-        Log.e("TAG", "HomeStoreFragment - onDestroy()")
     }
 }
