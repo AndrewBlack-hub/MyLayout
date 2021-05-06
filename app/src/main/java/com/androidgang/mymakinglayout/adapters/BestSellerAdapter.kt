@@ -22,12 +22,6 @@ class BestSellerAdapter(
 
     val behaviorSubject: BehaviorSubject<PhonesResponse> = BehaviorSubject.create()
 
-    //var onBestSellerCellClickListener: OnBestSellerCellClickListener? = null
-
-//    interface OnBestSellerCellClickListener {
-//        fun onCellClick(item: PhonesResponse)
-//    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.best_seller_cell, parent, false)
@@ -40,7 +34,6 @@ class BestSellerAdapter(
         holder.bindImage(itemSeller)
         holder.bindIsFavoriteState(itemSeller)
         holder.itemView.setOnClickListener {
-            //onBestSellerCellClickListener?.onCellClick(itemSeller)
             behaviorSubject.onNext(itemSeller)
         }
     }
