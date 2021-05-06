@@ -13,11 +13,13 @@ import com.androidgang.mymakinglayout.adapters.ProductsAdapter
 import com.androidgang.mymakinglayout.databinding.ProductsFragmentBinding
 import com.androidgang.mymakinglayout.models.PhonesResponse
 import com.androidgang.mymakinglayout.viewmodel.ProductsViewModel
+import io.reactivex.disposables.CompositeDisposable
 
 class ProductsFragment : Fragment() {
 
     private var _binding: ProductsFragmentBinding? = null
     private val binding get() = _binding!!
+    private val cd = CompositeDisposable()
 
     private val viewModel by lazy {
         ViewModelProvider(this@ProductsFragment)[ProductsViewModel::class.java]
@@ -53,21 +55,11 @@ class ProductsFragment : Fragment() {
     }
 
     private fun toDetailsFragment() {
-        productsAdapter.onProductClickListener = object : ProductsAdapter.OnProductClickListener {
-            override fun onProductClick(item: PhonesResponse) {
-                val action = ProductsFragmentDirections.actionProductsFragmentToDetailsFragment(
-                    fullTitle = item.fullTitle,
-                    price = item.price,
-                    rating = item.rating,
-                    image = item.image,
-                    processor = item.processor,
-                    camera = item.camera,
-                    ram = item.ram,
-                    rom = item.rom
-                )
-                findNavController().navigate(action)
-            }
+        val dis = productsAdapter.behaviorSubject.subscribe { item ->
+            val action = viewModel.sendArgs(item)
+             findNavController().navigate(action)
         }
+        cd.add(dis)
     }
 
     private fun loadData() {
@@ -93,8 +85,15 @@ class ProductsFragment : Fragment() {
         binding.rvProductList.adapter = productsAdapter
     }
 
+    private fun disposeObservers() {
+        cd.dispose()
+        cd.clear()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        disposeObservers()
+        viewModel.disposeObservers()
     }
 }

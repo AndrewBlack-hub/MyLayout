@@ -11,16 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.models.PhonesResponse
 import com.bumptech.glide.Glide
+import io.reactivex.subjects.BehaviorSubject
 
 class ProductsAdapter(private val context: Context) : RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder>() {
 
     private val productsList: ArrayList<PhonesResponse> = arrayListOf()
 
-    var onProductClickListener: OnProductClickListener? = null
-
-    interface OnProductClickListener {
-        fun onProductClick(item: PhonesResponse)
-    }
+    val behaviorSubject: BehaviorSubject<PhonesResponse> = BehaviorSubject.create()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductsViewHolder {
         return ProductsViewHolder(LayoutInflater.from(parent.context)
@@ -31,7 +28,7 @@ class ProductsAdapter(private val context: Context) : RecyclerView.Adapter<Produ
         val item = productsList[position]
         holder.bind(item)
         holder.itemView.setOnClickListener {
-            onProductClickListener?.onProductClick(item)
+            behaviorSubject.onNext(item)
         }
     }
 
