@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".scenes.CartFragment">
+
+    <ImageView
+        android:id="@+id/iv_cart_btn_back"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/border_dark_blue_btn_cart"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_label_add_address"
+        style="@style/font_400_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="9dp"
+        android:fontFamily="@font/mark_pro"
+        android:text="@string/add_address"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_cart_geolocation"
+        app:layout_constraintEnd_toStartOf="@id/iv_cart_geolocation"
+        app:layout_constraintTop_toTopOf="@id/iv_cart_geolocation" />
+
+    <ImageView
+        android:id="@+id/iv_cart_geolocation"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="46dp"
+        android:background="@drawable/border_bag_btn_cart"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_geolocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_label_my_cart"
+        style="@style/font_400_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/mark_pro"
+        android:text="@string/my_cart"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_cart_btn_back" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_my_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+            android:id="@+id/v_cart_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="49dp"
+            android:background="@drawable/border_cart_bot_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="33dp"
+            android:layout_marginTop="80dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/cart_cell"
+            app:layout_constraintTop_toTopOf="@id/v_cart_background"
+            app:layout_constraintStart_toStartOf="@id/v_cart_background"
+            app:layout_constraintEnd_toEndOf="@id/v_cart_background"
+            app:layout_constraintBottom_toTopOf="@id/v_cart_main_dividing_line"/>
+
+
+        
+        <View
+            android:id="@+id/v_cart_main_dividing_line"
+            android:layout_width="406dp"
+            android:layout_height="2dp"
+            android:layout_marginBottom="216dp"
+            android:background="@color/cart_main_dividing_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_cart_label_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="55dp"
+            android:text="@string/cart_label_total"
+            style="@style/font_400_white"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_cart_main_dividing_line"/>
+
+        <TextView
+            android:id="@+id/tv_cart_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/cart_total_price"
+            style="@style/font_400_white"
+            android:textStyle="bold"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_cart_main_dividing_line"/>
+
+        <TextView
+            android:id="@+id/tv_cart_label_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="55dp"
+            android:text="@string/cart_label_delivery"
+            style="@style/font_400_white"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cart_label_total"/>
+
+        <TextView
+            android:id="@+id/tv_cart_delivery_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="35dp"
+            android:text="@string/cart_delivery_value"
+            style="@style/font_400_white"
+            android:textStyle="bold"
+            android:fontFamily="@font/mark_pro"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/tv_cart_total_price"
+            app:layout_constraintTop_toBottomOf="@id/tv_cart_total_price"/>
+
+        <View
+            android:id="@+id/v_cart_dividing_line"
+            android:layout_width="406dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="216dp"
+            android:layout_marginTop="26dp"
+            android:background="@color/cart_dividing_line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_cart_label_delivery"/>
+
+        <TextView
+            android:id="@+id/tv_btn_checkout"
+            android:layout_width="326dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="27dp"
+            android:text="@string/cart_text_checkout"
+            style="@style/font_400_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/border_cart_btn_checkout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_cart_dividing_line"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
