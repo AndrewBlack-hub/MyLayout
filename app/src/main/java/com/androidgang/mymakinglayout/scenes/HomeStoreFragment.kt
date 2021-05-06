@@ -17,6 +17,7 @@ import com.androidgang.mymakinglayout.adapters.HomeStoreAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentHomeStoreBinding
 import com.androidgang.mymakinglayout.models.PhonesResponse
 import com.androidgang.mymakinglayout.viewmodel.HomeStoreViewModel
+import io.reactivex.disposables.CompositeDisposable
 
 class HomeStoreFragment : Fragment() {
 
@@ -25,6 +26,7 @@ class HomeStoreFragment : Fragment() {
 
     private var homeStoreAdapter: HomeStoreAdapter? = null
     private var bestSellerAdapter: BestSellerAdapter? = null
+    private val cd = CompositeDisposable()
 
     private val homeStoreViewModel: HomeStoreViewModel by lazy {
         ViewModelProvider(this).get(HomeStoreViewModel::class.java)
@@ -98,10 +100,10 @@ class HomeStoreFragment : Fragment() {
     }
 
     private fun implClickListenerAdapter() {
-        bestSellerAdapter?.onBestSellerCellClickListener = object : BestSellerAdapter
-        .OnBestSellerCellClickListener {
-            override fun onCellClick(item: PhonesResponse) {
-                val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToDetailsFragment(
+        val dis = bestSellerAdapter?.behaviorSubject
+            ?.subscribe {
+                item -> val action = HomeStoreFragmentDirections
+                .actionHomeStoreFragmentToDetailsFragment(
                     fullTitle = item.fullTitle,
                     price = item.price,
                     rating = item.rating,
@@ -113,7 +115,7 @@ class HomeStoreFragment : Fragment() {
                 )
                 findNavController().navigate(action)
             }
-        }
+        dis?.let { cd.add(it) }
     }
 
     private fun openFilterFragment() {
@@ -122,9 +124,16 @@ class HomeStoreFragment : Fragment() {
         }
     }
 
+    private fun disposeObservers() {
+        cd.dispose()
+        cd.clear()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        disposeObservers()
         homeStoreViewModel.disposeObservers()
+        Log.e("TAG", "HomeStoreFragment - onDestroy()")
     }
 }
