@@ -20,63 +20,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/iv_geolocation_ic"
-                android:layout_width="wrap_content"
+            <include
+                android:id="@+id/header_home_store"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="132dp"
-                android:layout_marginTop="21dp"
-                android:contentDescription="@string/ic_geolocation"
-                android:src="@drawable/ic_geolocation_icon"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_array_of_cities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="11dp"
-                android:background="@drawable/main_spinner_background"
-                android:entries="@array/array_of_cities"
-                app:layout_constraintBottom_toBottomOf="@id/iv_geolocation_ic"
-                app:layout_constraintStart_toEndOf="@id/iv_geolocation_ic"
-                app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic" />
-
-            <ImageView
-                android:id="@+id/iv_filter_ic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="35dp"
-                android:contentDescription="@string/ic_filter"
-                android:src="@drawable/ic_filter"
-                app:layout_constraintBottom_toBottomOf="@id/iv_geolocation_ic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_header_category"
-                style="@style/font_700_dark_blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="18dp"
-                android:text="@string/title_select_category"
-                android:textSize="25sp"
-                app:fontFamily="@font/mark_pro"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_geolocation_ic" />
-
-            <TextView
-                android:id="@+id/tv_label_view_all"
-                style="@style/font_400_orange"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="119dp"
-                android:text="@string/subtitle_view_all"
-                app:fontFamily="@font/mark_pro"
-                app:layout_constraintBottom_toBottomOf="@id/tv_header_category"
-                app:layout_constraintStart_toEndOf="@id/tv_header_category"
-                app:layout_constraintTop_toTopOf="@id/tv_header_category" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/rv_category"
+                layout="@layout/home_store_header_layout"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_category"
@@ -85,41 +35,19 @@
                 android:layout_marginTop="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toTopOf="@id/sv_search_field"
+                app:layout_constraintBottom_toTopOf="@id/search_part_home_store"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_header_category"
+                app:layout_constraintTop_toBottomOf="@id/header_home_store"
                 tools:listitem="@layout/category_cell" />
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/sv_search_field"
-                android:layout_width="300dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="35dp"
-                android:background="@drawable/border_radius_edit_text"
-                android:inputType="text"
-                app:iconifiedByDefault="false"
-                app:layout_constraintStart_toStartOf="parent"
+            <include
+                android:id="@+id/search_part_home_store"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/home_store_search_part_layout"
                 app:layout_constraintTop_toBottomOf="@id/rv_category"
-                app:queryBackground="@android:color/transparent"
-                app:queryHint="Search"
-                app:searchIcon="@drawable/ic_search"
-                app:theme="@style/AppSearchView" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_finding_button"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="11dp"
-                android:layout_marginEnd="37dp"
-                android:background="@drawable/border_radius_img_view_selected"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_finding_btn_icon"
-                app:layout_constraintBottom_toBottomOf="@id/sv_search_field"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/sv_search_field"
-                app:layout_constraintTop_toTopOf="@id/sv_search_field" />
+                app:layout_constraintBottom_toTopOf="@id/tv_header_hot_sales"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_header_hot_sales"
@@ -132,7 +60,7 @@
                 android:textSize="25sp"
                 app:fontFamily="@font/mark_pro"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sv_search_field" />
+                app:layout_constraintTop_toBottomOf="@id/search_part_home_store" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_label_see_more_hot_sales"

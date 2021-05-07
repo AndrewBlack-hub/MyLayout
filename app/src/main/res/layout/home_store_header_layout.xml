@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_geolocation_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="21dp"
+        android:contentDescription="@string/ic_geolocation"
+        android:src="@drawable/ic_geolocation_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_array_of_cities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:background="@drawable/main_spinner_background"
+        android:entries="@array/array_of_cities"
+        app:layout_constraintBottom_toBottomOf="@id/iv_geolocation_ic"
+        app:layout_constraintStart_toEndOf="@id/iv_geolocation_ic"
+        app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic" />
+
+    <ImageView
+        android:id="@+id/iv_filter_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:contentDescription="@string/ic_filter"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/iv_geolocation_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_geolocation_ic" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_header_category"
+        style="@style/font_700_dark_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/title_select_category"
+        android:textSize="25sp"
+        app:fontFamily="@font/mark_pro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_geolocation_ic" />
+
+    <TextView
+        android:id="@+id/tv_label_view_all"
+        style="@style/font_400_orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="119dp"
+        android:text="@string/subtitle_view_all"
+        app:fontFamily="@font/mark_pro"
+        app:layout_constraintBottom_toBottomOf="@id/tv_header_category"
+        app:layout_constraintStart_toEndOf="@id/tv_header_category"
+        app:layout_constraintTop_toTopOf="@id/tv_header_category" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
