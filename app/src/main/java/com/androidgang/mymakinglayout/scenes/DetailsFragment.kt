@@ -22,6 +22,9 @@ class DetailsFragment : Fragment() {
 
     private val args: DetailsFragmentArgs by navArgs()
 
+    //Аргументы из фрагмента "Товары"
+    private val argsFromProducts: DetailsFragmentArgs by navArgs()
+
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
 

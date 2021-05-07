@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_homeStoreFragment_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
+        <action
+            android:id="@+id/action_homeStoreFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -63,4 +66,13 @@
             app:argType="string"
             android:defaultValue="Hello, World!" />
     </dialog>
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.ProductsFragment"
+        android:label="products_fragment"
+        tools:layout="@layout/products_fragment" >
+        <action
+            android:id="@+id/action_productsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>
