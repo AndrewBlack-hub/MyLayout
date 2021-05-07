@@ -38,6 +38,7 @@ class ProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialization()
+        toDetailsFragment()
     }
 
     private fun initialization() {
@@ -45,7 +46,6 @@ class ProductsFragment : Fragment() {
         initProductAdapter()
         loadData()
         initLiveDataObservers()
-        toDetailsFragment()
     }
 
     private fun initRVProducts() {
