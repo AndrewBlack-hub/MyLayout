@@ -83,6 +83,7 @@ class DetailsFragment : Fragment() {
         viewPager?.setPageTransformer(compositePageTransformer)
         onClickBackBtn()
         onClickDoneBtn()
+        addInCart()
     }
 
     private fun updateUI() {
@@ -115,6 +116,19 @@ class DetailsFragment : Fragment() {
 
     private fun showBottomNavigation(mainActivity: MainActivity) {
         mainActivity.bottomNavigationView?.visibility = View.VISIBLE
+    }
+
+    private fun addInCart() {
+        binding.tvAddToCardBtn.setOnClickListener {
+            detailsViewModel.insertItem(
+                id = argsFromBestSeller.id,
+                title = argsFromBestSeller.fullTitle,
+                price = argsFromBestSeller.price,
+                image = argsFromBestSeller.image,
+                view = requireView(),
+                resource = resources
+            )
+        }
     }
 
     override fun onDestroy() {

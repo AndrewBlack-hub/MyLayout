@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.models.CartResponse
-import com.androidgang.mymakinglayout.scenes.DetailsFragment
 import com.androidgang.mymakinglayout.service.ApiService
 import com.androidgang.mymakinglayout.service.NetworkService
 import com.google.android.material.snackbar.Snackbar
@@ -53,6 +52,7 @@ class CartUseCase {
                             Snackbar.LENGTH_SHORT
                         )
                         successAdd.show()
+                        Log.e("TAG", "insert item in cart: ${response.body()}")
                     }
                 }
 
@@ -63,6 +63,7 @@ class CartUseCase {
                         Snackbar.LENGTH_SHORT
                     )
                     successAdd.show()
+                    Log.e("TAG", "insert item in cart fail: ${t.message}")
                 }
             })
     }

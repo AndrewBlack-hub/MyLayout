@@ -95,12 +95,12 @@
                 android:id="@+id/iv_favorite_btn"
                 android:layout_width="37dp"
                 android:layout_height="33dp"
-                android:layout_marginStart="58dp"
+                android:layout_marginEnd="37dp"
                 android:layout_marginTop="28dp"
                 android:background="@drawable/border_dark_blue_btn_details"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_favorite_btn_details"
-                app:layout_constraintStart_toEndOf="@id/tv_label_product_detail"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/v_white_background" />
 
             <RatingBar
