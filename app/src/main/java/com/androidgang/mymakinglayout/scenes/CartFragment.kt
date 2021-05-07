@@ -147,6 +147,6 @@ class CartFragment : Fragment() {
         _binding = null
         showBottomNavMenu()
         disposeObservers()
-
+        cartViewModel.disposeObservers()
     }
 }
