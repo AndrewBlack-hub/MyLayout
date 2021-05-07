@@ -77,4 +77,6 @@
     <string name="cart_label_delivery">Delivery</string>
     <string name="cart_delivery_value">Free</string>
     <string name="cart_text_checkout">Checkout</string>
+    <string name="snackbar_success_add">товар добавлен в корзину</string>
+    <string name="snackbar_failure_add">ошибка добавления в корзину</string>
 </resources>

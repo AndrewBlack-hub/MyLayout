@@ -56,6 +56,7 @@ class ProductsFragment : Fragment() {
         productsAdapter.onProductClickListener = object : ProductsAdapter.OnProductClickListener {
             override fun onProductClick(item: PhonesResponse) {
                 val action = ProductsFragmentDirections.actionProductsFragmentToDetailsFragment(
+                    id = item.id,
                     fullTitle = item.fullTitle,
                     price = item.price,
                     rating = item.rating,

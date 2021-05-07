@@ -17,6 +17,7 @@ import com.androidgang.mymakinglayout.adapters.HomeStoreAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentHomeStoreBinding
 import com.androidgang.mymakinglayout.models.PhonesResponse
 import com.androidgang.mymakinglayout.viewmodel.HomeStoreViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class HomeStoreFragment : Fragment() {
 
@@ -25,6 +26,8 @@ class HomeStoreFragment : Fragment() {
 
     private var homeStoreAdapter: HomeStoreAdapter? = null
     private var bestSellerAdapter: BestSellerAdapter? = null
+
+    private lateinit var parentActivity: MainActivity
 
     private val homeStoreViewModel: HomeStoreViewModel by lazy {
         ViewModelProvider(this).get(HomeStoreViewModel::class.java)
@@ -41,6 +44,8 @@ class HomeStoreFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialization()
+        initActivity()
+        onCartClick()
     }
 
     private fun initialization() {
@@ -53,6 +58,10 @@ class HomeStoreFragment : Fragment() {
         openFilterFragment()
         implClickListenerAdapter()
         toProductsFragment()//Тестовый переход на Фрагмент товаров
+    }
+
+    private fun initActivity() {
+        parentActivity = activity as MainActivity
     }
 
     private fun initRVCategory() {
@@ -102,6 +111,7 @@ class HomeStoreFragment : Fragment() {
         .OnBestSellerCellClickListener {
             override fun onCellClick(item: PhonesResponse) {
                 val action = HomeStoreFragmentDirections.actionHomeStoreFragmentToDetailsFragment(
+                    id = item.id,
                     fullTitle = item.fullTitle,
                     price = item.price,
                     rating = item.rating,
@@ -122,10 +132,16 @@ class HomeStoreFragment : Fragment() {
         }
     }
 
-    //МЕТОД для перехода на фрагмент товаров
+    //МЕТОД для перехода на фрагмент товаров(УДАЛИТЬ)
     private fun toProductsFragment() {
         binding.ivFindingButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_productsFragment)
+        }
+    }
+
+    private fun onCartClick() {
+        parentActivity.iconCart?.setOnClickListener {
+            findNavController().navigate(R.id.action_homeStoreFragment_to_cartFragment)
         }
     }
 

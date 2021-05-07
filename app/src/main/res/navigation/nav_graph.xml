@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_homeStoreFragment_to_productsFragment"
             app:destination="@id/productsFragment" />
+        <action
+            android:id="@+id/action_homeStoreFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -52,6 +55,9 @@
         <argument
             android:name="rom"
             app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <dialog
         android:id="@+id/bottomSheetFragment"
@@ -74,5 +80,29 @@
         <action
             android:id="@+id/action_productsFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.CartFragment"
+        android:label="cart_fragment"
+        tools:layout="@layout/cart_fragment" >
+        <action
+            android:id="@+id/action_cartFragment_to_homeStoreFragment"
+            app:destination="@id/homeStoreFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="_id"
+            app:argType="string" />
     </fragment>
 </navigation>
