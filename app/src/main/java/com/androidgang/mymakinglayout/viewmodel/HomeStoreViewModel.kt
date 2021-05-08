@@ -19,6 +19,16 @@ class HomeStoreViewModel: BaseViewModel() {
         cd.add(dis)
     }
 
+    fun updateBestSellerItem(
+        idToFind: String,
+        isFavorite: Boolean
+    ) {
+        phonesUseCase.updateItemInBestSeller(
+            idToFind = idToFind,
+            isFavorite = isFavorite
+        )
+    }
+
     val categoriesList = mutableListOf<CategoryCell>()
 
     init {

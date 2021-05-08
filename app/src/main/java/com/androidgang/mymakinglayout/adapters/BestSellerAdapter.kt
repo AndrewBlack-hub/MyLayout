@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.androidgang.mymakinglayout.R
+import com.androidgang.mymakinglayout.models.FavoritesResponse
 import com.androidgang.mymakinglayout.models.PhonesResponse
 import com.bumptech.glide.Glide
 import io.reactivex.subjects.BehaviorSubject
@@ -21,6 +22,7 @@ class BestSellerAdapter(
     private val bestSellerList: ArrayList<PhonesResponse> = arrayListOf()
 
     val behaviorSubject: BehaviorSubject<PhonesResponse> = BehaviorSubject.create()
+    val behaviorFavorite: BehaviorSubject<PhonesResponse> = BehaviorSubject.create()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerViewHolder {
         val view =
@@ -35,6 +37,9 @@ class BestSellerAdapter(
         holder.bindIsFavoriteState(itemSeller)
         holder.itemView.setOnClickListener {
             behaviorSubject.onNext(itemSeller)
+        }
+        holder.itemView.iv_like_product.setOnClickListener {
+            behaviorFavorite.onNext(itemSeller)
         }
     }
 
@@ -58,11 +63,9 @@ class BestSellerAdapter(
 
         fun bindIsFavoriteState(item: PhonesResponse) {
             if (item.isFavorite) {
-                itemView.iv_like_product.visibility = View.GONE
-                itemView.iv_like_product_checked.visibility = View.VISIBLE
+                itemView.iv_like_product.setImageResource(R.drawable.ic_like_full)
             } else {
-                itemView.iv_like_product.visibility = View.VISIBLE
-                itemView.iv_like_product_checked.visibility = View.GONE
+                itemView.iv_like_product.setImageResource(R.drawable.ic_like_empty)
             }
         }
 

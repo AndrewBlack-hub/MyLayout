@@ -4,6 +4,10 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class FavoritesResponse(
+    @SerializedName("_id")
+    @Expose
+    var _id: String = "",
+
     @SerializedName("id")
     @Expose
     var id: Int = 0,

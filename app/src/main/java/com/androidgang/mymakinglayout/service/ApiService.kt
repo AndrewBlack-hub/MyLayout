@@ -34,4 +34,11 @@ interface ApiService {
     fun delItemFromFavorite(
         @Path("idToFind") idToDel: String
     ): Call<FavoritesResponse>
+
+    @PATCH("phones/{idToFind}")
+    @FormUrlEncoded
+    fun updateBestSellerItem(
+        @Path("idToFind") idToFind: String,
+        @Field("isFavorite") isFavorite: Boolean
+    ): Call<PhonesResponse>
 }

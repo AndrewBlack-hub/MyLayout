@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_favorite_phone_image"
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_favorite_phone_title"
+            style="@style/font_500_dark_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/mark_pro"
+            android:text="Смартфон DEXP BL350"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/iv_favorite_phone_image"
+            app:layout_constraintTop_toTopOf="@id/iv_favorite_phone_image" />
+
+        <RatingBar
+            android:id="@+id/rb_favorite_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CustomRatingBar"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@id/iv_favorite_phone_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_favorite_phone_title" />
+
+        <ImageView
+            android:id="@+id/iv_favorite_phone_btn"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/border_dark_blue_btn_details"
+            android:scaleType="center"
+            android:src="@drawable/ic_favorite_btn_products"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_favorite_phone_image"
+            app:layout_constraintTop_toBottomOf="@id/rb_favorite_phone" />
+
+        <TextView
+            android:id="@+id/iv_favorite_add_to_cart_btn"
+            style="@style/font_700_white"
+            android:layout_width="160dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="19dp"
+            android:background="@drawable/border_textview_add_to_card"
+            android:fontFamily="@font/mark_pro"
+            android:gravity="end|center_vertical"
+            android:paddingEnd="32dp"
+            android:text="$1,500"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_favorite_phone_btn"
+            app:layout_constraintTop_toBottomOf="@id/rb_favorite_phone" />
+
+        <ImageView
+            android:id="@+id/iv_favorite_cart_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_shopping_cart"
+            app:layout_constraintStart_toStartOf="@id/iv_favorite_add_to_cart_btn"
+            app:layout_constraintTop_toTopOf="@id/iv_favorite_add_to_cart_btn"
+            app:layout_constraintBottom_toBottomOf="@id/iv_favorite_add_to_cart_btn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

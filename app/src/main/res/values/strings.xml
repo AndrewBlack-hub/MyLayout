@@ -70,4 +70,9 @@
 
     <!--  Details Fragment  -->
     <string name="title_product_detail">Product Detail</string>
+    
+    <!--  Favorite Fragment  -->
+    <string name="snackbar_favorite_success_add">Добавлено в избранное</string>
+    <string name="snackbar_favorite_fail_add">Ошибка добавления</string>
+
 </resources>

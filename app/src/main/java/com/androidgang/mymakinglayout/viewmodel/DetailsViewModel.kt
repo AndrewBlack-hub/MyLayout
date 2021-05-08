@@ -1,10 +1,10 @@
 package com.androidgang.mymakinglayout.viewmodel
 
-import androidx.lifecycle.ViewModel
 import com.androidgang.mymakinglayout.R
+import com.androidgang.mymakinglayout.base.BaseViewModel
 import com.androidgang.mymakinglayout.models.DetailsCell
 
-class DetailsViewModel: ViewModel() {
+class DetailsViewModel: BaseViewModel() {
     val detailsImageList = mutableListOf<DetailsCell>()
 
     init {
