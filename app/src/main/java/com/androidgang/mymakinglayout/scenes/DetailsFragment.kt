@@ -22,9 +22,6 @@ class DetailsFragment : Fragment() {
 
     private val args: DetailsFragmentArgs by navArgs()
 
-    //Аргументы из фрагмента "Товары"
-    private val argsFromProducts: DetailsFragmentArgs by navArgs()
-
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
 
@@ -56,6 +53,9 @@ class DetailsFragment : Fragment() {
         settingViewPager2()
         hideBottomNavigation(parentActivity)
         updateUI()
+        onClickBackBtn()
+        onClickDoneBtn()
+        onClickFavoriteBtn()
     }
 
     private fun settingViewPager2() {
@@ -73,9 +73,33 @@ class DetailsFragment : Fragment() {
             page.scaleY = 0.85F + r * 0.15f
         }
         viewPager?.setPageTransformer(compositePageTransformer)
-        onClickBackBtn()
-        onClickDoneBtn()
-        addInCart()
+    }
+
+    private fun onClickFavoriteBtn() {
+        binding.ivFavoriteBtn.setOnClickListener {
+            if (!args.isFavorite) {
+                detailsViewModel.insertItemInFavorite(
+                    id = args.id,
+                    title = args.fullTitle,
+                    price = args.price,
+                    oldPrice = args.oldPrice,
+                    image = args.image,
+                    isFavorite = true,
+                    rating = args.rating,
+                    processor = args.processor,
+                    camera = args.camera,
+                    ram = args.ram,
+                    rom = args.rom,
+                    view = requireView(),
+                    resource = resources
+                )
+            } else {
+                detailsViewModel.delItemFromFavorite(
+                    idToDel = args.id.toString()
+                )
+            }
+
+        }
     }
 
     private fun updateUI() {

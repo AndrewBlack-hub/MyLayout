@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     var bottomNavigationView: View? = null
     var iconCart: ImageView? = null
+    var iconFavorite: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +26,22 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView = binding.bottomNavigationMenu
         iconCart = binding.icBag
+        initBottomNavMenu()
+        initIconFavorite()
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         setupNavigationController(navController)
+    }
+
+    private fun initIconFavorite() {
+        iconFavorite = binding.icHeart
+    }
+
+    private fun initBottomNavMenu() {
+        bottomNavigationView = binding.bottomNavigationMenu
     }
 
     private fun setupNavigationController(navController: NavController) {

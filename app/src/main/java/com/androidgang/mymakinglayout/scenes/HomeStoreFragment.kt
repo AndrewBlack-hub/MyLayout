@@ -48,6 +48,8 @@ class HomeStoreFragment : Fragment() {
         initialization()
         initActivity()
         onCartClick()
+        onClickFavoriteIcon()
+        onClickFavoriteBtn()
     }
 
     private fun initialization() {
@@ -59,6 +61,13 @@ class HomeStoreFragment : Fragment() {
         initBestSellerAdapter()
         openFilterFragment()
         implClickListenerAdapter()
+        initParentActivity()
+    }
+
+    private fun onClickFavoriteIcon() {
+        parentActivity.iconFavorite?.setOnClickListener {
+            findNavController().navigate(R.id.action_homeStoreFragment_to_favoriteFragment)
+        }
     }
 
     private fun initActivity() {
@@ -107,13 +116,38 @@ class HomeStoreFragment : Fragment() {
         Log.e("TAG", "данные с сервера")
     }
 
+    private fun onClickFavoriteBtn() {
+        val dis = bestSellerAdapter?.behaviorFavorite?.subscribe { item ->
+            if (!item.isFavorite) {
+                homeStoreViewModel.updateBestSellerItem(
+                    idToFind = item._id,
+                    isFavorite = true)
+            } else {
+                homeStoreViewModel.updateBestSellerItem(
+                    idToFind = item._id,
+                    isFavorite = false,
+                )
+            }
+            loadData()
+            homeStoreViewModel.getLiveDataOnSuccess.observe(viewLifecycleOwner, {
+                dataLoaded(it as List<PhonesResponse>)
+            })
+        }
+        if (dis != null) {
+            cd.add(dis)
+        }
+    }
+
     private fun implClickListenerAdapter() {
         val dis = bestSellerAdapter?.behaviorSubject
             ?.subscribe {
                 item -> val action = HomeStoreFragmentDirections
                 .actionHomeStoreFragmentToDetailsFragment(
+                    id = item.id,
                     fullTitle = item.fullTitle,
                     price = item.price,
+                    oldPrice = item.oldPrice,
+                    isFavorite = item.isFavorite,
                     rating = item.rating,
                     image = item.image,
                     processor = item.processor,
@@ -130,6 +164,10 @@ class HomeStoreFragment : Fragment() {
         binding.ivFilterIc.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
         }
+    }
+
+    private fun initParentActivity() {
+        parentActivity = activity as MainActivity
     }
 
     private fun disposeObservers() {

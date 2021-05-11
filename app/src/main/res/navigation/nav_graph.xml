@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_homeStoreFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeStoreFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -55,6 +58,15 @@
         <argument
             android:name="rom"
             app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="oldPrice"
+            app:argType="string" />
+        <argument
+            android:name="isFavorite"
+            app:argType="boolean" />
         <argument
             android:name="id"
             app:argType="integer" />
@@ -105,4 +117,9 @@
             android:name="_id"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.androidgang.mymakinglayout.scenes.FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/favorite_fragment" />
 </navigation>

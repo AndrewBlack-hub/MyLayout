@@ -20,6 +20,9 @@ class ProductsViewModel : BaseViewModel() {
 
     fun sendArgs(item: PhonesResponse): NavDirections {
         return ProductsFragmentDirections.actionProductsFragmentToDetailsFragment(
+            id = item.id,
+            oldPrice = item.oldPrice,
+            isFavorite = item.isFavorite,
             fullTitle = item.fullTitle,
             price = item.price,
             rating = item.rating,
