@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.androidgang.mymakinglayout.R
 import com.androidgang.mymakinglayout.adapters.ViewPagerAdapter
 import com.androidgang.mymakinglayout.databinding.FragmentDetailsBinding
+import com.androidgang.mymakinglayout.models.FavoritesResponse
 import com.androidgang.mymakinglayout.viewmodel.DetailsViewModel
 
 
@@ -79,19 +80,20 @@ class DetailsFragment : Fragment() {
         binding.ivFavoriteBtn.setOnClickListener {
             if (!args.isFavorite) {
                 detailsViewModel.insertItemInFavorite(
-                    id = args.id,
-                    title = args.fullTitle,
-                    price = args.price,
-                    oldPrice = args.oldPrice,
-                    image = args.image,
-                    isFavorite = true,
-                    rating = args.rating,
-                    processor = args.processor,
-                    camera = args.camera,
-                    ram = args.ram,
-                    rom = args.rom,
+                    FavoritesResponse(id = args.id,
+                        fullTitle = args.fullTitle,
+                        price = args.price,
+                        oldPrice = args.oldPrice,
+                        image = args.image,
+                        isFavorite = true,
+                        rating = args.rating,
+                        processor = args.processor,
+                        camera = args.camera,
+                        ram = args.ram,
+                        rom = args.rom
+                    ),
                     view = requireView(),
-                    resource = resources
+                    resources = resources
                 )
             } else {
                 detailsViewModel.delItemFromFavorite(
@@ -137,10 +139,10 @@ class DetailsFragment : Fragment() {
     private fun addInCart() {
         binding.tvAddToCardBtn.setOnClickListener {
             detailsViewModel.insertItem(
-                id = argsFromBestSeller.id,
-                title = argsFromBestSeller.fullTitle,
-                price = argsFromBestSeller.price,
-                image = argsFromBestSeller.image,
+                id = args.id,
+                title = args.fullTitle,
+                price = args.price,
+                image = args.image,
                 view = requireView(),
                 resource = resources
             )

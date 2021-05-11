@@ -57,19 +57,9 @@ class FavoriteFragment : Fragment() {
         val dis = favoritesAdapter.behaviorFavorite.subscribe { item ->
             if (!item.isFavorite) {
                 viewModel.insertItemInFavorite(
-                    item.id,
-                    item.fullTitle,
-                    item.price,
-                    item.oldPrice,
-                    item.image,
-                    isFavorite = true,
-                    item.rating,
-                    item.processor,
-                    item.camera,
-                    item.ram,
-                    item.rom,
+                    item,
                     requireView(),
-                    resource = resources
+                    resources = resources
                 )
             } else {
                 viewModel.delItemFromFavorite(item._id)

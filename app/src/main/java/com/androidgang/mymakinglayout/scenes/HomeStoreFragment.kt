@@ -161,7 +161,7 @@ class HomeStoreFragment : Fragment() {
     }
 
     private fun openFilterFragment() {
-        binding.ivFilterIc.setOnClickListener {
+        binding.headerHomeStore.ivFilterIc.setOnClickListener {
             findNavController().navigate(R.id.action_homeStoreFragment_to_bottomSheetFragment)
         }
     }
@@ -173,12 +173,6 @@ class HomeStoreFragment : Fragment() {
     private fun disposeObservers() {
         cd.dispose()
         cd.clear()
-    }
-    //МЕТОД для перехода на фрагмент товаров(УДАЛИТЬ)
-    private fun toProductsFragment() {
-        binding.ivFindingButton.setOnClickListener {
-            findNavController().navigate(R.id.action_homeStoreFragment_to_productsFragment)
-        }
     }
 
     private fun onCartClick() {
