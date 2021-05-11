@@ -16,4 +16,7 @@
     <color name="dark_grey">#8D8D8D</color>
     <color name="stars_color">#FFB800</color>
     <color name="filter_border_spinner">#DCDCDC</color>
+    <color name="cart_main_dividing_line">#40FFFFFF</color>
+    <color name="cart_dividing_line">#33FFFFFF</color>
+    <color name="cart_product_counter">#282843</color>
 </resources>
