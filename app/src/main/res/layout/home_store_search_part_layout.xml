@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_search_field"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/border_radius_edit_text"
+        android:inputType="text"
+        app:iconifiedByDefault="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryBackground="@android:color/transparent"
+        app:queryHint="Search"
+        app:searchIcon="@drawable/ic_search"
+        app:theme="@style/AppSearchView" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_finding_button"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="37dp"
+        android:background="@drawable/border_radius_img_view_selected"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_finding_btn_icon"
+        app:layout_constraintBottom_toBottomOf="@id/sv_search_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sv_search_field"
+        app:layout_constraintTop_toTopOf="@id/sv_search_field" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
