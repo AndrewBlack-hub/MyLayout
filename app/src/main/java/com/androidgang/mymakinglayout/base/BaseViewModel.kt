@@ -35,36 +35,8 @@ open class BaseViewModel : ViewModel() {
         cd.clear()
     }
 
-    fun insertItemInFavorite(
-        id: Int,
-        title: String,
-        price: String,
-        oldPrice: String,
-        image: String,
-        isFavorite: Boolean,
-        rating: Int,
-        processor: String,
-        camera: String,
-        ram: String,
-        rom: String,
-        view: View,
-        resource: Resources
-    ) {
-        favoriteUseCase.insertItemInFavorite(
-            id = id,
-            title = title,
-            price = price,
-            oldPrice = oldPrice,
-            image = image,
-            isFavorite = isFavorite,
-            rating = rating,
-            processor = processor,
-            camera = camera,
-            ram = ram,
-            rom = rom,
-            view = view,
-            resource = resource
-        )
+    fun insertItemInFavorite(item: FavoritesResponse, view: View, resources: Resources) {
+        favoriteUseCase.insertItemInFavorite(item, view, resources)
     }
 
     fun delItemFromFavorite(idToDel: String) {

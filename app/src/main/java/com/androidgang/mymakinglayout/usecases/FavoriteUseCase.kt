@@ -25,33 +25,23 @@ class FavoriteUseCase {
     }
 
     fun insertItemInFavorite(
-        id: Int,
-        title: String,
-        price: String,
-        oldPrice: String,
-        image: String,
-        isFavorite: Boolean,
-        rating: Int,
-        processor: String,
-        camera: String,
-        ram: String,
-        rom: String,
+        item: FavoritesResponse,
         view: View,
         resource: Resources
     ) {
         NetworkService.buildService(ApiService::class.java)
             .insertItemInFavorite(
-                id = id,
-                title = title,
-                price = price,
-                oldPrice = oldPrice,
-                isFavorite = isFavorite,
-                rating = rating,
-                processor = processor,
-                camera = camera,
-                ram = ram,
-                rom = rom,
-                image = image
+                id = item.id,
+                title = item.fullTitle,
+                price = item.price,
+                oldPrice = item.oldPrice,
+                isFavorite = item.isFavorite,
+                rating = item.rating,
+                processor = item.processor,
+                camera = item.camera,
+                ram = item.ram,
+                rom = item.rom,
+                image = item.image
             ).enqueue( object : Callback<FavoritesResponse> {
                 override fun onResponse(
                     call: Call<FavoritesResponse>,
